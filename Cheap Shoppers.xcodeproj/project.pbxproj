@@ -13,6 +13,7 @@
 		C8475DD2234414960019D5B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8475DD0234414960019D5B5 /* Main.storyboard */; };
 		C8475DD4234414970019D5B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8475DD3234414970019D5B5 /* Assets.xcassets */; };
 		C8475DD7234414970019D5B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8475DD5234414970019D5B5 /* LaunchScreen.storyboard */; };
+		C8475DDF2344179A0019D5B5 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8475DDE2344179A0019D5B5 /* HomeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C8475DD3234414970019D5B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8475DD6234414970019D5B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8475DD8234414970019D5B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8475DDE2344179A0019D5B5 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				C8475DD3234414970019D5B5 /* Assets.xcassets */,
 				C8475DD5234414970019D5B5 /* LaunchScreen.storyboard */,
 				C8475DD8234414970019D5B5 /* Info.plist */,
+				C8475DDE2344179A0019D5B5 /* HomeTableViewController.swift */,
 			);
 			path = "Cheap Shoppers";
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8475DDF2344179A0019D5B5 /* HomeTableViewController.swift in Sources */,
 				C8475DCF234414960019D5B5 /* SecondViewController.swift in Sources */,
 				C8475DCB234414960019D5B5 /* AppDelegate.swift in Sources */,
 				C8475DCD234414960019D5B5 /* FirstViewController.swift in Sources */,
