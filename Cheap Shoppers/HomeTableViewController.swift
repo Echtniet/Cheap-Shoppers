@@ -11,7 +11,7 @@ import UIKit
 class HomeTableViewController: UITableViewController {
     
     let menuItems = ["My Lists", "My Friends", "Item Look Up"]
-    let tvcs = ["myList", "myFriends", "itemLookUp"]
+    let tvcs = ["myList", "myfriends", "itemLookUp"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +46,20 @@ class HomeTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        var tvcMyList = storyboard!.instantiateViewController(withIdentifier: tvcs[indexPath.row]) as! MyListTableViewController
-        self.navigationController!.pushViewController(tvcMyList, animated: true)
+        switch indexPath.row {
+        case 0:
+            let tvcMyList = storyboard!.instantiateViewController(withIdentifier: tvcs[indexPath.row]) as! MyListTableViewController
+            self.navigationController!.pushViewController(tvcMyList, animated: true)
+        case 1:
+            let tvcMyList = storyboard!.instantiateViewController(withIdentifier: tvcs[indexPath.row]) as! MyFriendsTableViewController
+            self.navigationController!.pushViewController(tvcMyList, animated: true)
+        case 2:
+            let tvcMyList = storyboard!.instantiateViewController(withIdentifier: tvcs[indexPath.row]) as! MyListTableViewController
+            self.navigationController!.pushViewController(tvcMyList, animated: true)
+        default:
+            let tvcMyList = storyboard!.instantiateViewController(withIdentifier: tvcs[indexPath.row]) as! MyListTableViewController
+            self.navigationController!.pushViewController(tvcMyList, animated: true)
+        }
     }
     
     /*
