@@ -11,6 +11,7 @@ import UIKit
 class HomeTableViewController: UITableViewController {
     
     let menuItems = ["My Lists", "My Friends", "Item Look Up"]
+    let tvcs = ["myList", "myFriends", "itemLookUp"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,13 @@ class HomeTableViewController: UITableViewController {
         return cell
     }
     
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var tvcMyList = storyboard!.instantiateViewController(withIdentifier: tvcs[indexPath.row]) as! MyListTableViewController
+        self.navigationController!.pushViewController(tvcMyList, animated: true)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
