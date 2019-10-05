@@ -54,7 +54,7 @@ class HomeTableViewController: UITableViewController {
             let tvcMyList = storyboard!.instantiateViewController(withIdentifier: tvcs[indexPath.row]) as! MyFriendsTableViewController
             self.navigationController!.pushViewController(tvcMyList, animated: true)
         case 2:
-            let tvcMyList = storyboard!.instantiateViewController(withIdentifier: tvcs[indexPath.row]) as! MyListTableViewController
+            let tvcMyList = storyboard!.instantiateViewController(withIdentifier: tvcs[indexPath.row]) as! ItemLookUpViewController
             self.navigationController!.pushViewController(tvcMyList, animated: true)
         default:
             let tvcMyList = storyboard!.instantiateViewController(withIdentifier: tvcs[indexPath.row]) as! MyListTableViewController
