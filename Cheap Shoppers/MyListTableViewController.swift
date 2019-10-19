@@ -20,6 +20,20 @@ class MyListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    required init?(coder aDecoder:NSCoder) {
+        super.init(coder:aDecoder)
+        navigationItem.title = "Shopping List"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
+        //tabBarItem.title  = "Planets"
+        self.navigationController?.tabBarItem.title = "List"
+       // self.navigationController?.tabBarItem.image = UIImage(named:"List.png")
+    }
+    @objc func add(_sender:UIBarButtonItem){
+        let ac = UIAlertController(title: "Add Shopping List", message: "please enter the details", preferredStyle: .alert)
+        ac.addTextField(configurationHandler: nil)
+       // ac.textFields![0].placeholder = "Specify name, distance and number of moons"
+    }
 
     // MARK: - Table view data source
 
