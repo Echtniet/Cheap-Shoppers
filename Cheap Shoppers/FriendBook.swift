@@ -53,5 +53,5 @@ class FriendBook {
 }
 
 enum FriendError:Error{
-    case NegativeDistance, NegativeNumMoons
+    case FriendNotFound
 }
