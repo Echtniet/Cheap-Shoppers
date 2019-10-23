@@ -35,7 +35,7 @@ class StoreListing {
         return _shared
     }
     
-    subscript(i:String) -> Item {
+    func sub(i:String) throws -> Item{
         guard let item = _items[i] else{
             throw ItemError.ItemNotFound
         }
