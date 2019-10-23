@@ -13,12 +13,20 @@ class MyFriendsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    @objc func add(){
+        let navCon = storyboard?.instantiateViewController(withIdentifier: "addNewFriendNavCon")
+        
+        self.present(navCon!, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source

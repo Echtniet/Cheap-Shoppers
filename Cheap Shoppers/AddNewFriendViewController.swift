@@ -19,7 +19,11 @@ class AddNewFriendViewController: UIViewController {
         let lastName:String = String(self.lastNameTF.text!)
         let phoneNum:String = String(self.phoneNumTF.text!)
         
-        FriendBook.shared.add(friend: Friend(firstName: firstName, lastName: lastName, phone: phoneNum))
+        do {
+            try FriendBook.shared.add(friend: Friend(firstName: firstName, lastName: lastName, phone: phoneNum))
+        } catch {
+        
+        }
     }
 
     override func viewDidLoad() {
@@ -42,8 +46,11 @@ class AddNewFriendViewController: UIViewController {
         let phoneNum = phoneNumTF.text
         
         let friend = Friend(firstName: firstName!, lastName: lastName!, phone: phoneNum!)
-        FriendBook.shared.add(friend: Friend)
-        
+        do {
+            try FriendBook.shared.add(friend: friend)
+        } catch {
+            
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
