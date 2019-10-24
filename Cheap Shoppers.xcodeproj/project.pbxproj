@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FC2CE5B23623909004F2715 /* myList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2CE5A23623909004F2715 /* myList.swift */; };
 		0FC4332D23441C7500D651B7 /* MyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4332C23441C7500D651B7 /* MyListTableViewController.swift */; };
 		3F092109234426CC003BDFC5 /* ItemLookUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F092108234426CC003BDFC5 /* ItemLookUpViewController.swift */; };
 		3F4F38762360060100C8E4FF /* AddNewFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F38752360060100C8E4FF /* AddNewFriendViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FC2CE5A23623909004F2715 /* myList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myList.swift; sourceTree = "<group>"; };
 		0FC4332C23441C7500D651B7 /* MyListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableViewController.swift; sourceTree = "<group>"; };
 		3F092108234426CC003BDFC5 /* ItemLookUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLookUpViewController.swift; sourceTree = "<group>"; };
 		3F4F38752360060100C8E4FF /* AddNewFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFriendViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				3FB1783E234421A6007CC0D0 /* MyFriendsTableViewController.swift */,
 				3F092108234426CC003BDFC5 /* ItemLookUpViewController.swift */,
 				3FC51676235BB4FC00A71FD9 /* FriendBook.swift */,
+				0FC2CE5A23623909004F2715 /* myList.swift */,
 				3F4F38752360060100C8E4FF /* AddNewFriendViewController.swift */,
 				3FC516782360961E00A71FD9 /* StoreListing.swift */,
 			);
@@ -171,6 +174,7 @@
 				3F092109234426CC003BDFC5 /* ItemLookUpViewController.swift in Sources */,
 				3FBD1BD1236201F30034475D /* TableCell.swift in Sources */,
 				C8475DCD234414960019D5B5 /* FirstViewController.swift in Sources */,
+				0FC2CE5B23623909004F2715 /* myList.swift in Sources */,
 				3FC51677235BB4FC00A71FD9 /* FriendBook.swift in Sources */,
 				3FB1783F234421A6007CC0D0 /* MyFriendsTableViewController.swift in Sources */,
 			);
