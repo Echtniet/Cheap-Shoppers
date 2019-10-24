@@ -11,6 +11,10 @@ import UIKit
 class MyFriendsTableViewController: UITableViewController {
     //let friends = ["Ben", "Clinton", "Rajesh", "Rohit"]
 
+    required init?(coder: NSCoder) {
+        super.init(coder:coder)
+        navigationController?.tabBarItem.title = "Friends"
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
