@@ -9,13 +9,13 @@
 import UIKit
 
 class MyFriendsTableViewController: UITableViewController {
-    let friends = ["Ben", "Clinton", "Rajesh", "Rohit"]
+    //let friends = ["Ben", "Clinton", "Rajesh", "Rohit"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
-
+        navigationItem.title = "Friends List"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -23,9 +23,13 @@ class MyFriendsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     @objc func add(){
         let navCon = storyboard?.instantiateViewController(withIdentifier: "addNewFriendNavCon")
-        
+        navCon?.modalPresentationStyle = .fullScreen
         self.present(navCon!, animated: true, completion: nil)
     }
 
@@ -38,15 +42,16 @@ class MyFriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return friends.count
+        return FriendBook.shared.numFriends
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendItem", for: indexPath)
 
+        let friend = FriendBook.shared[indexPath.row]
         // Configure the cell...
-        cell.textLabel?.text = friends[indexPath.row]
+        cell.textLabel?.text = "\(friend.firstName) \(friend.lastName)"
 
         return cell
     }

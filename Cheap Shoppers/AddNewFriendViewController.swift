@@ -31,13 +31,13 @@ class AddNewFriendViewController: UIViewController {
         
         navigationItem.title = "Add New Friend"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(add))
 
         // Do any additional setup after loading the view.
     }
     
     @objc func cancel() {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func add() {
