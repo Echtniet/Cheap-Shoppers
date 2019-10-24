@@ -11,6 +11,7 @@
 		3F092109234426CC003BDFC5 /* ItemLookUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F092108234426CC003BDFC5 /* ItemLookUpViewController.swift */; };
 		3F4F38762360060100C8E4FF /* AddNewFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F38752360060100C8E4FF /* AddNewFriendViewController.swift */; };
 		3FB1783F234421A6007CC0D0 /* MyFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB1783E234421A6007CC0D0 /* MyFriendsTableViewController.swift */; };
+		3FBD1BD1236201F30034475D /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBD1BD0236201F30034475D /* TableCell.swift */; };
 		3FC51677235BB4FC00A71FD9 /* FriendBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC51676235BB4FC00A71FD9 /* FriendBook.swift */; };
 		3FC516792360961E00A71FD9 /* StoreListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC516782360961E00A71FD9 /* StoreListing.swift */; };
 		C8475DCB234414960019D5B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8475DCA234414960019D5B5 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 		3F092108234426CC003BDFC5 /* ItemLookUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLookUpViewController.swift; sourceTree = "<group>"; };
 		3F4F38752360060100C8E4FF /* AddNewFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFriendViewController.swift; sourceTree = "<group>"; };
 		3FB1783E234421A6007CC0D0 /* MyFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsTableViewController.swift; sourceTree = "<group>"; };
+		3FBD1BD0236201F30034475D /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		3FC51676235BB4FC00A71FD9 /* FriendBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendBook.swift; sourceTree = "<group>"; };
 		3FC516782360961E00A71FD9 /* StoreListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreListing.swift; sourceTree = "<group>"; };
 		C8475DC7234414960019D5B5 /* Cheap Shoppers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cheap Shoppers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 				C8475DCC234414960019D5B5 /* FirstViewController.swift */,
 				C8475DCE234414960019D5B5 /* SecondViewController.swift */,
 				C8475DD0234414960019D5B5 /* Main.storyboard */,
+				3FBD1BD0236201F30034475D /* TableCell.swift */,
 				C8475DD3234414970019D5B5 /* Assets.xcassets */,
 				C8475DD5234414970019D5B5 /* LaunchScreen.storyboard */,
 				C8475DD8234414970019D5B5 /* Info.plist */,
@@ -166,6 +169,7 @@
 				3F4F38762360060100C8E4FF /* AddNewFriendViewController.swift in Sources */,
 				C8475DCB234414960019D5B5 /* AppDelegate.swift in Sources */,
 				3F092109234426CC003BDFC5 /* ItemLookUpViewController.swift in Sources */,
+				3FBD1BD1236201F30034475D /* TableCell.swift in Sources */,
 				C8475DCD234414960019D5B5 /* FirstViewController.swift in Sources */,
 				3FC51677235BB4FC00A71FD9 /* FriendBook.swift in Sources */,
 				3FB1783F234421A6007CC0D0 /* MyFriendsTableViewController.swift in Sources */,
