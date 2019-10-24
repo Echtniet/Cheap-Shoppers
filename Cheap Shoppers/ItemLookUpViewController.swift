@@ -10,6 +10,8 @@ import UIKit
 
 class ItemLookUpViewController: UIViewController {
 
+    @IBOutlet weak var itemSearchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
