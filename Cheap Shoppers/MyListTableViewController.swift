@@ -29,10 +29,12 @@ class MyListTableViewController: UITableViewController {
         self.navigationController?.tabBarItem.title = "List"
        // self.navigationController?.tabBarItem.image = UIImage(named:"List.png")
     }
+    
+    
     @objc func add(_sender:UIBarButtonItem){
-        let ac = UIAlertController(title: "Add Shopping List", message: "please enter the details", preferredStyle: .alert)
-        ac.addTextField(configurationHandler: nil)
-       // ac.textFields![0].placeholder = "Specify name, distance and number of moons"
+        let navCon = storyboard?.instantiateViewController(withIdentifier: "addNewListNavCon")
+        navCon?.modalPresentationStyle = .fullScreen
+        self.present(navCon!, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
