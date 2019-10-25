@@ -18,9 +18,9 @@ class AddNewFriendViewController: UIViewController {
         let firstName:String = String(self.firstNameTF.text!)
         let lastName:String = String(self.lastNameTF.text!)
         let phoneNum:String = String(self.phoneNumTF.text!)
-        
+        let ssn = 123456789
         do {
-            try FriendBook.shared.add(friend: Friend(firstName: firstName, lastName: lastName, phone: phoneNum))
+            try FriendBook.shared.add(friend: Friend(ssn: ssn, firstName: firstName, lastName: lastName, phone: phoneNum))
         } catch {
         
         }
@@ -44,8 +44,8 @@ class AddNewFriendViewController: UIViewController {
         let firstName = firstNameTF.text
         let lastName = lastNameTF.text
         let phoneNum = phoneNumTF.text
-        
-        let friend = Friend(firstName: firstName!, lastName: lastName!, phone: phoneNum!)
+        let ssn = 123456789
+        let friend = Friend(ssn: ssn, firstName: firstName!, lastName: lastName!, phone: phoneNum!)
         do {
             try FriendBook.shared.add(friend: friend)
         } catch {
