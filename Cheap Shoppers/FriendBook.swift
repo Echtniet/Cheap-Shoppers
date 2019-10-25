@@ -135,7 +135,7 @@ class FriendBook {
             (friendRecords, error) in
             if let error = error {
                 //self.alert(title: "Disaster while fetching all teachers:", message: "\(error)")
-                //UIViewController.alert(title: "Disaster while fetching all teachers", message:"\(error)")
+                UIViewController.alert(title: "Disaster while fetching all teachers", message:"\(error)")
             } else {
                 FriendBook.shared.friends = []
                 for friendRecord in friendRecords! {          // note the studentRecord -> student
@@ -156,13 +156,13 @@ class FriendBook {
         Custodian.privateDatabase.save(friend.record){
             (record, error) in
             if let error = error {
-                //UIViewController.alert(title:"Something has gone wrong while adding a teacher", message:"\(error)")
+                UIViewController.alert(title:"Something has gone wrong while adding a teacher", message:"\(error)")
             } else {
                 self.friends.append(friend)
-                //UIViewController.alert(title:"Successfully saved teacher", message:"") //don't save it locally, just in iCloud, because of the difficulties of managing the n side of a 1:n relationship
+                UIViewController.alert(title:"Successfully saved friend", message:"") //don't save it locally, just in iCloud, because of the difficulties of managing the n side of a 1:n relationship
                 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: NSNotification.Name("Added New Friend"), object: friend)
-                    //UIViewController.alert(title: "Added New Teacher", message:"")
+                    UIViewController.alert(title: "Added New Friend", message:"")
                 }
             }
             
@@ -184,9 +184,9 @@ class FriendBook {
                 
                 (record, error) in                                                      // handle things going wrong
                 if let error = error {
-                    //UIViewController.alert(title: "Disaster while saving teachers", message:"\(error)")
+                    UIViewController.alert(title: "Disaster while saving friends", message:"\(error)")
                 } else {
-                    //UIViewController.alert(title:"Success, saved teacher", message:"")
+                    UIViewController.alert(title:"Success, saved friend", message:"")
                     
                     // having saved the teacher, now save their students
                     

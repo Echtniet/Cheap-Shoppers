@@ -31,7 +31,7 @@ class MyFriendsTableViewController: UITableViewController {
             (accountStatus, error) in
             if accountStatus == .noAccount {
                 DispatchQueue.main.async {
-                    //UIViewController.alert(title: "Sign in to iCloud", message: "Sign in to your iCloud account to write records. On the Home screen, launch Settings, tap iCloud, and enter your Apple ID. Turn iCloud Drive on. If you don't have an iCloud account, tap Create a new Apple ID.")
+                    UIViewController.alert(title: "Sign in to iCloud", message: "Sign in to your iCloud account to write records. On the Home screen, launch Settings, tap iCloud, and enter your Apple ID. Turn iCloud Drive on. If you don't have an iCloud account, tap Create a new Apple ID.")
                 }
             }
         }
