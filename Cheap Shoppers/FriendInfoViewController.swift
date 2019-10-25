@@ -12,12 +12,16 @@ class FriendInfoViewController: UIViewController {
     
     var friend: Friend!
 
-    @IBOutlet weak var firstNameTF: UILabel!
-    @IBOutlet weak var lastNameTF: UILabel!
-    @IBOutlet weak var phoneNum: UILabel!
+    @IBOutlet weak var firstNameLBL: UILabel!
+    @IBOutlet weak var lastNameLBL: UILabel!
+    @IBOutlet weak var phoneNumLBL: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstNameLBL.text = friend.firstName
+        lastNameLBL.text = friend.lastName
+        phoneNumLBL.text = friend.phone
 
         // Do any additional setup after loading the view.
     }

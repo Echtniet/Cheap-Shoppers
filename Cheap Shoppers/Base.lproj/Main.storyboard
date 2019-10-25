@@ -332,6 +332,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="RVM-X5-PQ7"/>
                     </view>
+                    <connections>
+                        <outlet property="firstNameLBL" destination="ZSG-7C-bAp" id="5jT-BS-ocJ"/>
+                        <outlet property="lastNameLBL" destination="4R0-X9-5MI" id="KV6-hi-p9o"/>
+                        <outlet property="phoneNumLBL" destination="juI-3p-xrd" id="7uX-zT-TwI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2je-7q-SMI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
