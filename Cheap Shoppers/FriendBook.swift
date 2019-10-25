@@ -10,6 +10,20 @@ import Foundation
 import CloudKit
 import UIKit
 
+extension UIViewController {
+    
+    static func alert(title:String, message:String){
+        
+        DispatchQueue.main.async {
+            let topViewController = UIApplication.shared.keyWindow!.rootViewController!
+            let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            ac.addAction(action)
+            topViewController.present(ac, animated:true)
+        }
+    }
+}
+
 class Custodian {
     static var defaultContainer:CKContainer = CKContainer.default()
     static var publicDatabase:CKDatabase = defaultContainer.publicCloudDatabase
@@ -114,7 +128,7 @@ class FriendBook {
         
     }
     
-    func fetchAllTeachers(){
+    func fetchAllFriends(){
         
         let query = CKQuery(recordType: "Friend", predicate: NSPredicate(value:true)) // this gets *all * teachers
         Custodian.privateDatabase.perform(query, inZoneWith: nil){

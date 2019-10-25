@@ -20,11 +20,38 @@ class MyFriendsTableViewController: UITableViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
         navigationItem.title = "Friends List"
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        NotificationCenter.default.addObserver(self, selector: #selector(addedNewFriend), name: NSNotification.Name("Added New Friend"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchedAllFriends), name: NSNotification.Name("All Friends Fetched"), object: nil)
+        checkForLogin()
+    }
+    
+    func checkForLogin(){
+        
+        Custodian.defaultContainer.accountStatus(){
+            (accountStatus, error) in
+            if accountStatus == .noAccount {
+                DispatchQueue.main.async {
+                    //UIViewController.alert(title: "Sign in to iCloud", message: "Sign in to your iCloud account to write records. On the Home screen, launch Settings, tap iCloud, and enter your Apple ID. Turn iCloud Drive on. If you don't have an iCloud account, tap Create a new Apple ID.")
+                }
+            }
+        }
+    }
+    
+    @objc func addedNewFriend(){
+        fetchAllFriends()
+    }
+    
+    
+    /// Retrieves all teachers from iCloud using a CKQuery
+    /// Invoked any time the view will appear
+    @objc func fetchAllFriends(){
+        FriendBook.shared.fetchAllFriends()
+    }
+    
+    @objc func fetchedAllFriends(){
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
