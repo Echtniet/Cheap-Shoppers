@@ -78,12 +78,12 @@ class MyFriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //1. Instantiate a FriendInfoViewController
-        let friendTVC = storyboard!.instantiateViewController(withIdentifier: "FriendInfoViewController") as! FriendInfoViewController
+        /*let friendTVC = storyboard!.instantiateViewController(withIdentifier: "FriendInfoViewController") as! FriendInfoViewController
         //2. Configure its Friend
         friendTVC.friend = FriendBook.shared[indexPath.row]
         
         //3. Push it on to the navigation controller's stack
-        self.navigationController!.pushViewController(friendTVC, animated: true)
+        self.navigationController!.pushViewController(friendTVC, animated: true)*/
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
