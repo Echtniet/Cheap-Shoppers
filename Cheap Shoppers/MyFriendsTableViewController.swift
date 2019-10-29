@@ -94,6 +94,7 @@ class MyFriendsTableViewController: UITableViewController {
         cell.textLabel?.text = "\(friend.firstName) \(friend.lastName)"
 
         return cell
+        //comment
     }
     
 
