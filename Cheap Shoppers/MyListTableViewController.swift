@@ -10,7 +10,7 @@ import UIKit
 
 class MyListTableViewController: UITableViewController {
 
-    var myList = ["Groceries", "Apparels", "Footwear", "Electronics","AutoParts" ]
+   // var myList = ["Groceries", "Apparels", "Footwear", "Electronics","AutoParts" ]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,11 +25,15 @@ class MyListTableViewController: UITableViewController {
         super.init(coder:aDecoder)
         navigationItem.title = "Shopping List"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
-        //tabBarItem.title  = "Planets"
         self.navigationController?.tabBarItem.title = "List"
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(listAdded), name: NSNotification.Name(rawValue: "List Added"), object: nil)
        // self.navigationController?.tabBarItem.image = UIImage(named:"List.png")
     }
     
+    @objc func listAdded(notification:NSNotification){
+        tableView.reloadData()
+    }
     
     @objc func add(_sender:UIBarButtonItem){
         let navCon = storyboard?.instantiateViewController(withIdentifier: "addNewListNavCon")
@@ -46,7 +50,7 @@ class MyListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return myList.count
+        return cheapProducts.shared.numMyList()
     }
 
     
@@ -54,7 +58,9 @@ class MyListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myListItem", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = myList[indexPath.row]
+       
+        let list = cheapProducts.shared[indexPath.row]
+        cell.textLabel?.text = list.listName
 
         return cell
     }
