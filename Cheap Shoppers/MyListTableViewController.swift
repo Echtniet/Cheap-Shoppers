@@ -10,7 +10,7 @@ import UIKit
 
 class MyListTableViewController: UITableViewController {
 
-    var myList = ["List1", "List2", "List3", "List4","List5" ]
+    var myList = ["Groceries", "Apparels", "Footwear", "Electronics","AutoParts" ]
     override func viewDidLoad() {
         super.viewDidLoad()
 
