@@ -27,10 +27,9 @@ class AddNewListViewController: UIViewController {
     }
     
     @objc func addNewList(){
-        let listItem = myList(listName: newListTF.text!)
+        let list = myList(id:cheapProducts.shared[cheapProducts.shared.numList - 1].id + 1 ,listName: newListTF.text!)
 //        Museum.shared.add(artist: artistItem)
-        cheapProducts.shared.addMyList(newlist: listItem)
-        
+        cheapProducts.shared.add(list: list)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue:"List Added"), object: nil)
         self.dismiss(animated: true, completion: nil)
         
