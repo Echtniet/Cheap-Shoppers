@@ -125,7 +125,7 @@ class FriendBook {
     }*/
     
     private init(){
-        populateCloudKitDatabase()
+        //populateCloudKitDatabase()
     }
     
     func fetchAllFriends(){
@@ -174,7 +174,7 @@ class FriendBook {
         
         //var friendsBook:[Friend]
         
-        friends = [Friend(ssn: 123456788, firstName: "Clinton", lastName: "Davelaar", phone: "5155997758")
+        friends = [Friend(ssn: 123456777, firstName: "Ben", lastName: "Brown", phone: "5151111111")
         ]
         
         
