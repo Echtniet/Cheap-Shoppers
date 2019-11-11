@@ -10,6 +10,11 @@ import UIKit
 
 class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
+    required init?(coder: NSCoder) {
+        super.init(coder:coder)
+        navigationController?.tabBarItem.title = "Friends"
+    }
+    
     @IBOutlet weak var itemSearchBar: UISearchBar!
     
     @IBOutlet weak var table: UITableView!
@@ -19,10 +24,18 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         //setUpItems()
         alterLayout()
         setUpSearchBar()
+        fetchAllItems()
+        NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"All Items Fetched"), object: nil)
         
         // Do any additional setup after loading the view.
     }
+    @objc func dataFetched(notification:Notification){
+        table.reloadData()
+    }
     
+    @objc func fetchAllItems(){
+        ItemArchive.shared.fetchAllItems()
+    }
     
     var itemArray = [Item]()
     var currentItemArray = [Item]()
@@ -91,10 +104,11 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
             return UITableViewCell()
         }
         
-        let item = ShopItem.
-        cell.itemNameLBL.text = currentItemArray[indexPath.row].itemName
-        cell.itemPriceLBL.text = "\(currentItemArray[indexPath.row].price)"
-        cell.storeNameLBL.text = currentItemArray[indexPath.row].storeName
+        let item = ItemArchive.shared[indexPath.row]
+        
+        cell.itemNameLBL.text = item.itemName
+        cell.itemPriceLBL.text = "\(item.price)"
+        cell.storeNameLBL.text = item.storeName
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -123,6 +137,7 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         table.reloadData()
         
     }
+    /*
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         
         switch selectedScope {
@@ -141,5 +156,6 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
             break
         }
         table.reloadData()
-    }
+    }*/
+    
 }
