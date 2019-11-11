@@ -51,6 +51,8 @@ class AddNewFriendViewController: UIViewController {
         } catch {
             
         }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:"Friend Added"), object: nil)
+        
         self.dismiss(animated: true, completion: nil)
     }
     
