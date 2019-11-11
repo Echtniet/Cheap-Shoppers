@@ -53,7 +53,7 @@ class Friend : Equatable, CKRecordValueProtocol, Hashable {
         get {
             return record["firstName"]!
         }
-        set(ssn){
+        set(firstName){
             record["firstName"] = firstName
         }
     }
@@ -62,7 +62,7 @@ class Friend : Equatable, CKRecordValueProtocol, Hashable {
         get {
             return record["lastName"]!
         }
-        set(ssn){
+        set(lastName){
             record["lastName"] = lastName
         }
     }
@@ -71,7 +71,7 @@ class Friend : Equatable, CKRecordValueProtocol, Hashable {
         get {
             return record["phone"]!
         }
-        set(ssn){
+        set(phone){
             record["phone"] = phone
         }
     }
