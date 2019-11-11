@@ -28,6 +28,7 @@ class MyListTableViewController: UITableViewController {
         self.navigationController?.tabBarItem.title = "List"
         
         NotificationCenter.default.addObserver(self, selector: #selector(listAdded), name: NSNotification.Name(rawValue: "List Added"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"Added New List"), object: nil)
        // self.navigationController?.tabBarItem.image = UIImage(named:"List.png")
     }
     
@@ -41,6 +42,10 @@ class MyListTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    @objc func dataFetched(notification:Notification){
+        tableView.reloadData()
     }
     
     @objc func listAdded(notification:NSNotification){

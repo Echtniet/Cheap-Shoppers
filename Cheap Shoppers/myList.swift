@@ -76,13 +76,13 @@ class cheapProducts {
     
     
     private init(){
-        populateCloudKitDatabase()
+        //populateCloudKitDatabase()
     }
     // returns the artist at ith location
     
     func fetchAllLists(){
         
-        let query = CKQuery(recordType: "List", predicate: NSPredicate(value:true)) // this gets *all * teachers
+        let query = CKQuery(recordType: "Lists", predicate: NSPredicate(value:true)) // this gets *all * teachers
         Custodian.privateDatabase.perform(query, inZoneWith: nil){
             (listsRecords, error) in
             if let error = error {
@@ -108,7 +108,7 @@ class cheapProducts {
                 self.lists.append(list)
                 UIViewController.alert(title:"Successfully saved list", message:"") //don't save it locally, just in iCloud, because of the difficulties of managing the n side of a 1:n relationship
                 DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: NSNotification.Name("Added New Friend"), object: list)
+                    NotificationCenter.default.post(name: NSNotification.Name("Added New List"), object: list)
                     UIViewController.alert(title: "Added New List", message:"")
                 }
             }
