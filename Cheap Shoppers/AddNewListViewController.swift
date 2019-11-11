@@ -30,7 +30,6 @@ class AddNewListViewController: UIViewController {
         let listItem = myList(listName: newListTF.text!)
 //        Museum.shared.add(artist: artistItem)
         cheapProducts.shared.addMyList(newlist: listItem)
-        
         NotificationCenter.default.post(name: NSNotification.Name(rawValue:"List Added"), object: nil)
         self.dismiss(animated: true, completion: nil)
         
