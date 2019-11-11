@@ -16,7 +16,7 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpItems()
+        //setUpItems()
         alterLayout()
         setUpSearchBar()
         
@@ -26,7 +26,7 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
     
     var itemArray = [Item]()
     var currentItemArray = [Item]()
-    
+   /*
     class Item{
         var itemName:String
         var price:Double
@@ -61,7 +61,7 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         currentItemArray = itemArray
         
     }
-    
+    */
     
     private func setUpSearchBar() {
         itemSearchBar.delegate = self
@@ -90,6 +90,8 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? TableCell else {
             return UITableViewCell()
         }
+        
+        let item = ShopItem.
         cell.itemNameLBL.text = currentItemArray[indexPath.row].itemName
         cell.itemPriceLBL.text = "\(currentItemArray[indexPath.row].price)"
         cell.storeNameLBL.text = currentItemArray[indexPath.row].storeName
