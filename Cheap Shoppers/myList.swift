@@ -22,7 +22,7 @@ class cheapProducts {
     private static var _shared:cheapProducts!
     
     private var mylist:[myList] = [
-        myList(listName: "Apperals"),
+        myList(listName: "Apparels"),
         myList(listName: "Footwear"),
         myList(listName: "Electronics"),
         myList(listName: "AutoParts")
