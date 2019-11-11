@@ -31,7 +31,34 @@ class MyListTableViewController: UITableViewController {
        // self.navigationController?.tabBarItem.image = UIImage(named:"List.png")
     }
     
+    func checkForLogin(){
+        
+        Custodian.defaultContainer.accountStatus(){
+            (accountStatus, error) in
+            if accountStatus == .noAccount {
+                DispatchQueue.main.async {
+                    UIViewController.alert(title: "Sign in to iCloud", message: "Sign in to your iCloud account to write records. On the Home screen, launch Settings, tap iCloud, and enter your Apple ID. Turn iCloud Drive on. If you don't have an iCloud account, tap Create a new Apple ID.")
+                }
+            }
+        }
+    }
+    
     @objc func listAdded(notification:NSNotification){
+        fetchAllLists()
+    }
+    
+    @objc func fetchAllLists(){
+        cheapProducts.shared.fetchAllLists()
+    }
+    
+    @objc func fetchedAllLists(){
+        DispatchQueue.main.async{
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        cheapProducts.shared.fetchAllLists()
         tableView.reloadData()
     }
     
@@ -50,7 +77,7 @@ class MyListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return cheapProducts.shared.numMyList()
+        return cheapProducts.shared.numList
     }
 
     
