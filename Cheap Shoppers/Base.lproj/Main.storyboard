@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,19 +54,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="eh8-87-Nwx">
-                                <rect key="frame" x="0.0" y="106" width="414" height="56"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8p-Aj-Lzf">
+                                <rect key="frame" x="80" y="695" width="255" height="78"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="6cy-Ts-vgd"/>
-                                    <constraint firstAttribute="height" constant="56" id="YJe-HN-DFl"/>
+                                    <constraint firstAttribute="height" constant="78" id="7HQ-9a-5VX"/>
+                                    <constraint firstAttribute="width" constant="255" id="OFw-g6-Jca"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="33Z-lw-adw" id="61e-Ar-H73"/>
-                                </connections>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H3h-b6-H4V">
-                                <rect key="frame" x="0.0" y="178" width="414" height="509"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H3h-b6-H4V">
+                                <rect key="frame" x="0.0" y="254" width="414" height="509"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="21F-vk-5WD"/>
@@ -131,44 +128,45 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="33Z-lw-adw" id="QEZ-eO-bjU"/>
+                                    <outlet property="delegate" destination="33Z-lw-adw" id="B0y-M6-klB"/>
+                                </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8p-Aj-Lzf">
-                                <rect key="frame" x="80" y="695" width="255" height="78"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="78" id="7HQ-9a-5VX"/>
-                                    <constraint firstAttribute="width" constant="255" id="OFw-g6-Jca"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                            </button>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j2F-bN-7tQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>All</string>
+                                    <string>Vegetables</string>
+                                    <string>Groceries</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eh8-87-Nwx" firstAttribute="top" secondItem="wac-75-M6m" secondAttribute="top" constant="62" id="1Sc-hY-6wI"/>
                             <constraint firstItem="wac-75-M6m" firstAttribute="trailing" secondItem="E8p-Aj-Lzf" secondAttribute="trailing" constant="79" id="4p1-fn-FOU"/>
                             <constraint firstItem="wac-75-M6m" firstAttribute="bottom" secondItem="E8p-Aj-Lzf" secondAttribute="bottom" constant="40" id="7Wb-iY-U6E"/>
                             <constraint firstItem="E8p-Aj-Lzf" firstAttribute="leading" secondItem="wac-75-M6m" secondAttribute="leading" constant="80" id="9ZY-3h-ODu"/>
                             <constraint firstItem="H3h-b6-H4V" firstAttribute="trailing" secondItem="wac-75-M6m" secondAttribute="trailing" id="IX9-zO-eFm"/>
                             <constraint firstItem="E8p-Aj-Lzf" firstAttribute="top" secondItem="H3h-b6-H4V" secondAttribute="bottom" constant="8" id="cdj-oa-HYb"/>
-                            <constraint firstItem="eh8-87-Nwx" firstAttribute="trailing" secondItem="wac-75-M6m" secondAttribute="trailing" id="ff1-8P-pbU"/>
                             <constraint firstItem="E8p-Aj-Lzf" firstAttribute="top" secondItem="H3h-b6-H4V" secondAttribute="bottom" constant="8" id="isn-VB-umR"/>
-                            <constraint firstItem="H3h-b6-H4V" firstAttribute="top" secondItem="eh8-87-Nwx" secondAttribute="bottom" constant="16" id="mhx-wY-rdS"/>
-                            <constraint firstItem="eh8-87-Nwx" firstAttribute="leading" secondItem="wac-75-M6m" secondAttribute="leading" id="wgP-tN-EsH"/>
                             <constraint firstItem="H3h-b6-H4V" firstAttribute="leading" secondItem="wac-75-M6m" secondAttribute="leading" id="yD7-TA-MsN"/>
-                            <constraint firstItem="H3h-b6-H4V" firstAttribute="top" secondItem="eh8-87-Nwx" secondAttribute="bottom" constant="16" id="ye3-yR-7ae"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wac-75-M6m"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="fPh-UY-mSZ"/>
                     <connections>
-                        <outlet property="itemSearchBar" destination="eh8-87-Nwx" id="QNq-ln-KDc"/>
+                        <outlet property="itemSearchBar" destination="j2F-bN-7tQ" id="CZX-Fy-J17"/>
                         <outlet property="searchDisplayController" destination="8gq-oW-Bpt" id="h9P-gU-rpu"/>
+                        <outlet property="table" destination="H3h-b6-H4V" id="nru-ql-F27"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vmZ-BP-BqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="8gq-oW-Bpt">
                     <connections>
                         <outlet property="delegate" destination="33Z-lw-adw" id="Ccs-wa-BhL"/>
-                        <outlet property="searchBar" destination="eh8-87-Nwx" id="746-uo-JQ3"/>
                         <outlet property="searchContentsController" destination="33Z-lw-adw" id="rom-Wu-jP6"/>
                         <outlet property="searchResultsDataSource" destination="33Z-lw-adw" id="PpR-aT-CnD"/>
                         <outlet property="searchResultsDelegate" destination="33Z-lw-adw" id="356-e3-B1D"/>
@@ -221,17 +219,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="XYZ" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NCT-Yn-YqH">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="list name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NCT-Yn-YqH">
                                 <rect key="frame" x="226" y="187" width="97" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Is1-F4-yz8"/>
                     </view>
                     <navigationItem key="navigationItem" id="7FY-Ga-1ud"/>
+                    <connections>
+                        <outlet property="newListTF" destination="NCT-Yn-YqH" id="Sq6-01-Y0K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3X-xG-8aA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -329,7 +330,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="RVM-X5-PQ7"/>
                     </view>
                     <connections>
