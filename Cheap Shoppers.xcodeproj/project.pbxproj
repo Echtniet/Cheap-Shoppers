@@ -17,7 +17,6 @@
 		3FC51677235BB4FC00A71FD9 /* FriendBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC51676235BB4FC00A71FD9 /* FriendBook.swift */; };
 		3FC516792360961E00A71FD9 /* StoreListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC516782360961E00A71FD9 /* StoreListing.swift */; };
 		3FC516A12362833C00A71FD9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC516A02362833C00A71FD9 /* CloudKit.framework */; };
-		3FFD553D236286A700173E7B /* FriendInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFD553C236286A700173E7B /* FriendInfoViewController.swift */; };
 		C8475DCB234414960019D5B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8475DCA234414960019D5B5 /* AppDelegate.swift */; };
 		C8475DCD234414960019D5B5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8475DCC234414960019D5B5 /* FirstViewController.swift */; };
 		C8475DCF234414960019D5B5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8475DCE234414960019D5B5 /* SecondViewController.swift */; };
@@ -39,7 +38,6 @@
 		3FC516782360961E00A71FD9 /* StoreListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreListing.swift; sourceTree = "<group>"; };
 		3FC5169E236282CB00A71FD9 /* Cheap Shoppers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cheap Shoppers.entitlements"; sourceTree = "<group>"; };
 		3FC516A02362833C00A71FD9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		3FFD553C236286A700173E7B /* FriendInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendInfoViewController.swift; sourceTree = "<group>"; };
 		C8475DC7234414960019D5B5 /* Cheap Shoppers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cheap Shoppers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8475DCA234414960019D5B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8475DCC234414960019D5B5 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				3F4F38752360060100C8E4FF /* AddNewFriendViewController.swift */,
 				0FC2CE5C23623A1A004F2715 /* AddNewListViewController.swift */,
 				3FC516782360961E00A71FD9 /* StoreListing.swift */,
-				3FFD553C236286A700173E7B /* FriendInfoViewController.swift */,
 			);
 			path = "Cheap Shoppers";
 			sourceTree = "<group>";
@@ -201,7 +198,6 @@
 				3F4F38762360060100C8E4FF /* AddNewFriendViewController.swift in Sources */,
 				C8475DCB234414960019D5B5 /* AppDelegate.swift in Sources */,
 				3F092109234426CC003BDFC5 /* ItemLookUpViewController.swift in Sources */,
-				3FFD553D236286A700173E7B /* FriendInfoViewController.swift in Sources */,
 				3FBD1BD1236201F30034475D /* TableCell.swift in Sources */,
 				C8475DCD234414960019D5B5 /* FirstViewController.swift in Sources */,
 				0FC2CE5B23623909004F2715 /* myList.swift in Sources */,

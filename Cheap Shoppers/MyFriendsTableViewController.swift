@@ -55,6 +55,7 @@ class MyFriendsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        FriendBook.shared.fetchAllFriends()
         tableView.reloadData()
     }
     
