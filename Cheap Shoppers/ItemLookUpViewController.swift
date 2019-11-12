@@ -12,7 +12,9 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
     
     required init?(coder: NSCoder) {
         super.init(coder:coder)
+        
         navigationController?.tabBarItem.title = "Friends"
+        
     }
     
     @IBOutlet weak var itemSearchBar: UISearchBar!
@@ -25,56 +27,35 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         alterLayout()
         setUpSearchBar()
         fetchAllItems()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"All Items Fetched"), object: nil)
         
         // Do any additional setup after loading the view.
     }
     @objc func dataFetched(notification:Notification){
-        table.reloadData()
+        DispatchQueue.main.async {
+            self.table.reloadData()
+        }
+       
+        
+        
     }
     
     @objc func fetchAllItems(){
         ItemArchive.shared.fetchAllItems()
     }
     
-    var itemArray = [Item]()
-    var currentItemArray = [Item]()
-   /*
-    class Item{
-        var itemName:String
-        var price:Double
-        var storeName:String
-        var category: ItemType
-        
-        init(itemName: String, price:Double, storeName:String, category: ItemType){
-            self.itemName=itemName
-            self.price=price
-            self.storeName=storeName
-            self.category=category
-            
-        }
-    }
+    //var itemArray = [Item]()
     
-    enum ItemType: String {
-        
-        case vegetables="Vegetable"
-        case groceries="Groceries"
-    }
+    var itemArray = [ShopItem]()
+    var currentItemArray = [ShopItem]()
     
-    private func setUpItems(){
-        //VEGETABLES
-        itemArray.append(Item(itemName: "Tomato", price: 2.3, storeName: "Walmart", category: .vegetables))
-        itemArray.append(Item(itemName: "Potato", price: 1.3, storeName: "Hyvee", category: .vegetables))
-        itemArray.append(Item(itemName: "Cauliflower", price: 4.3, storeName: "Walmart", category: .vegetables))
-        //GROCERIES
-        itemArray.append(Item(itemName: "Milk", price: 6.0, storeName: "Walmart", category: .groceries))
-        itemArray.append(Item(itemName: "Bread", price: 3.0, storeName: "Walmart", category: .groceries))
-        itemArray.append(Item(itemName: "Coke", price: 8.0, storeName: "Hyvee", category: .groceries))
-        
+
+        private func setUpItems(){
         currentItemArray = itemArray
         
     }
-    */
+   
     
     private func setUpSearchBar() {
         itemSearchBar.delegate = self
@@ -96,7 +77,8 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentItemArray.count
+       // return currentItemArray.count
+        return ItemArchive.shared.numItem
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,11 +86,16 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
             return UITableViewCell()
         }
         
+        itemArray = []
+        
+        itemArray.append(ItemArchive.shared[indexPath.row])
+        
         let item = ItemArchive.shared[indexPath.row]
         
         cell.itemNameLBL.text = item.itemName
         cell.itemPriceLBL.text = "\(item.price)"
         cell.storeNameLBL.text = item.storeName
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -132,6 +119,8 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         }
         currentItemArray = itemArray.filter({item -> Bool in
             //guard let text = searchBar.text else { return false }
+            
+           
             return item.itemName.lowercased().contains(searchText.lowercased())
         })
         table.reloadData()

@@ -103,7 +103,7 @@ class ItemArchive {
      }*/
     
     private init(){
-        populateCloudKitDatabase()
+            //populateCloudKitDatabase()
     }
     
     func fetchAllItems(){
@@ -156,7 +156,7 @@ class ItemArchive {
                  ShopItem(id: 3, price: 4.3, itemName: "Cauliflower", storeName: "Walmart"),
                  ShopItem(id: 4, price: 6.0, itemName: "Milk", storeName: "Walmart"),
                  ShopItem(id: 5, price: 3.0, itemName: "Bread", storeName: "Walmart"),
-                 ShopItem(id: 6, price: 8.0, itemName: "Coke", storeName: "Hyvee"),
+                 ShopItem(id: 6, price: 8.0, itemName: "Coke", storeName: "Hyvee")
                  
         ]
         
@@ -165,7 +165,7 @@ class ItemArchive {
             
             Custodian.privateDatabase.save(item.record){             // 4. save the record (after having gotten the container, and container.publicCloudDatabase
                 
-                (record, error) in                                                      // handle things going wrong
+                (record, error) in                                                      // handle things going wrongx
                 if let error = error {
                     UIViewController.alert(title: "Disaster while saving items", message:"\(error)")
                 } else {
