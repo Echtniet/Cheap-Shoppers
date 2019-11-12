@@ -13,18 +13,8 @@ class AddNewFriendViewController: UIViewController {
     @IBOutlet weak var firstNameTF: UITextField!
     @IBOutlet weak var lastNameTF: UITextField!
     @IBOutlet weak var phoneNumTF: UITextField!
+    @IBOutlet weak var ssn: UITextField!
     
-    @IBAction func addNew(_ sender: UIButton) {
-        let firstName:String = String(self.firstNameTF.text!)
-        let lastName:String = String(self.lastNameTF.text!)
-        let phoneNum:String = String(self.phoneNumTF.text!)
-        let ssn = 123456789
-        do {
-            try FriendBook.shared.add(friend: Friend(ssn: ssn, firstName: firstName, lastName: lastName, phone: phoneNum))
-        } catch {
-        
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,25 +34,14 @@ class AddNewFriendViewController: UIViewController {
         let firstName = firstNameTF.text
         let lastName = lastNameTF.text
         let phoneNum = phoneNumTF.text
-        let ssn = 123456789
-        let friend = Friend(ssn: ssn, firstName: firstName!, lastName: lastName!, phone: phoneNum!)
-        do {
-            try FriendBook.shared.add(friend: friend)
-        } catch {
-            
-        }
+        let SSN = Int (ssn.text!)!
+        let friend = Friend(ssn: SSN, firstName: firstName!, lastName: lastName!, phone: phoneNum!)
+        FriendBook.shared.add(friend: friend)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:"Friend Added"), object: nil)
+        
         self.dismiss(animated: true, completion: nil)
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
 }
