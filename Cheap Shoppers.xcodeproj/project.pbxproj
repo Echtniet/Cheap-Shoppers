@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0FBAADB32378E29A0026AD8B /* IndividualListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBAADB22378E29A0026AD8B /* IndividualListTableViewController.swift */; };
+		0FBAADB52378F9DE0026AD8B /* AddItemsToListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBAADB42378F9DE0026AD8B /* AddItemsToListsViewController.swift */; };
 		0FC2CE5B23623909004F2715 /* myList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2CE5A23623909004F2715 /* myList.swift */; };
 		0FC2CE5D23623A1A004F2715 /* AddNewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2CE5C23623A1A004F2715 /* AddNewListViewController.swift */; };
 		0FC4332D23441C7500D651B7 /* MyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4332C23441C7500D651B7 /* MyListTableViewController.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		0FBAADB22378E29A0026AD8B /* IndividualListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualListTableViewController.swift; sourceTree = "<group>"; };
+		0FBAADB42378F9DE0026AD8B /* AddItemsToListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemsToListsViewController.swift; sourceTree = "<group>"; };
 		0FC2CE5A23623909004F2715 /* myList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myList.swift; sourceTree = "<group>"; };
 		0FC2CE5C23623A1A004F2715 /* AddNewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListViewController.swift; sourceTree = "<group>"; };
 		0FC4332C23441C7500D651B7 /* MyListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				3F4F38752360060100C8E4FF /* AddNewFriendViewController.swift */,
 				0FC2CE5C23623A1A004F2715 /* AddNewListViewController.swift */,
 				3FC516782360961E00A71FD9 /* StoreListing.swift */,
+				0FBAADB42378F9DE0026AD8B /* AddItemsToListsViewController.swift */,
 			);
 			path = "Cheap Shoppers";
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				0FBAADB32378E29A0026AD8B /* IndividualListTableViewController.swift in Sources */,
 				0FC2CE5B23623909004F2715 /* myList.swift in Sources */,
 				3FC51677235BB4FC00A71FD9 /* FriendBook.swift in Sources */,
+				0FBAADB52378F9DE0026AD8B /* AddItemsToListsViewController.swift in Sources */,
 				3FB1783F234421A6007CC0D0 /* MyFriendsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

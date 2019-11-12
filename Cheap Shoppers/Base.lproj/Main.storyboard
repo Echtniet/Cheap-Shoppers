@@ -207,7 +207,7 @@
         <!--Individual List Table View Controller-->
         <scene sceneID="2Nb-MP-rIr">
             <objects>
-                <tableViewController id="Mjk-6y-YzL" customClass="IndividualListTableViewController" customModule="Cheap_Shoppers" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="individualList" id="Mjk-6y-YzL" customClass="IndividualListTableViewController" customModule="Cheap_Shoppers" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XfW-KP-xTR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -232,6 +232,39 @@
             </objects>
             <point key="canvasLocation" x="4068" y="1550"/>
         </scene>
+        <!--Add Items To Lists View Controller-->
+        <scene sceneID="RMo-8e-Rkl">
+            <objects>
+                <viewController id="eKt-BY-GWl" customClass="AddItemsToListsViewController" customModule="Cheap_Shoppers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ps7-Y7-WIk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Item Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gV-79-5xQ">
+                                <rect key="frame" x="56" y="204" width="127" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kLH-xf-Is2">
+                                <rect key="frame" x="188" y="209" width="171" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="X5H-kc-N59"/>
+                    </view>
+                    <connections>
+                        <outlet property="newItemTF" destination="kLH-xf-Is2" id="07g-FN-g9O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bwi-io-sJJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4733" y="1552"/>
+        </scene>
         <!--Add New List View Controller-->
         <scene sceneID="Zxz-VR-tZj">
             <objects>
@@ -248,7 +281,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="list name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NCT-Yn-YqH">
-                                <rect key="frame" x="226" y="187" width="97" height="34"/>
+                                <rect key="frame" x="152" y="187" width="171" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -264,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3X-xG-8aA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3135" y="1550"/>
+            <point key="canvasLocation" x="3134.7826086956525" y="1549.5535714285713"/>
         </scene>
         <!--Add New Friend View Controller-->
         <scene sceneID="6fa-V3-CPH">

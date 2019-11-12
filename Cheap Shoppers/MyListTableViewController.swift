@@ -28,7 +28,7 @@ class MyListTableViewController: UITableViewController {
         self.navigationController?.tabBarItem.title = "List"
         
         NotificationCenter.default.addObserver(self, selector: #selector(listAdded), name: NSNotification.Name(rawValue: "List Added"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"Added New List"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"All Lists Fetched"), object: nil)
        // self.navigationController?.tabBarItem.image = UIImage(named:"List.png")
     }
     
@@ -88,16 +88,19 @@ class MyListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myListItem", for: indexPath)
-
         // Configure the cell...
-       
         let list = cheapProducts.shared[indexPath.row]
         cell.textLabel?.text = list.listName
 
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectListTableViewController = storyboard?.instantiateViewController(withIdentifier: "individualList") as! IndividualListTableViewController
+        selectListTableViewController.list = cheapProducts.shared[indexPath.row]
+        navigationController?.pushViewController(selectListTableViewController, animated: true)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
