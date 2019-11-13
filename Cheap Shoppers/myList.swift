@@ -124,7 +124,7 @@ class Items : Equatable{
     }
     
     private init(){
-        //populateCloudKitDatabase()
+        populateCloudKitDatabase()
     }
     
     func fetchAllItems(){

@@ -125,7 +125,7 @@ class FriendBook {
     }*/
     
     private init(){
-        //populateCloudKitDatabase()
+        populateCloudKitDatabase()
     }
     
     func fetchAllFriends(){
