@@ -79,6 +79,7 @@ class ShopItem : Equatable, CKRecordValueProtocol, Hashable {
 class ItemArchive {
     private var items:[ShopItem] = []
     
+    
     var numItem:Int{
         return items.count
     }
@@ -148,9 +149,6 @@ class ItemArchive {
     }
     
     func populateCloudKitDatabase(){
-        
-        //var friendsBook:[Friend]
-        
         items = [ShopItem(id: 1, price: 2.3, itemName: "Tomato", storeName: "Walmart"),
                  ShopItem(id: 2, price: 1.3, itemName: "Potato", storeName: "Hyvee"),
                  ShopItem(id: 3, price: 4.3, itemName: "Cauliflower", storeName: "Walmart"),
@@ -159,10 +157,7 @@ class ItemArchive {
                  ShopItem(id: 6, price: 8.0, itemName: "Coke", storeName: "Hyvee")
                  
         ]
-        
-        
         for item in items {
-            
             Custodian.privateDatabase.save(item.record){             // 4. save the record (after having gotten the container, and container.publicCloudDatabase
                 
                 (record, error) in                                                      // handle things going wrongx
@@ -183,6 +178,25 @@ class ItemArchive {
     }
     
     
+    
+    /*
+    func filterPetitions(searchText:String) -> ShopItem{
+        let x:ShopItem =
+        for it in ItemArchive._shared.items {
+            if it.itemName.lowercased().contains(searchText.lowercased()){
+                x = it
+            }
+        }
+        
+       // item.itemName.lowercased().contains(searchText.lowercased())
+        
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:"Petition Filtered"), object: nil)
+        return x
+    }
+
+    
+    */
 }
 
 enum ShopItemError:Error{

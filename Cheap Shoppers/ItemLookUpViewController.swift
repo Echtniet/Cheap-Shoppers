@@ -10,12 +10,24 @@ import UIKit
 
 class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
+    var items:[ShopItem]!
+    
     required init?(coder: NSCoder) {
         super.init(coder:coder)
+     
+        navigationController?.tabBarItem.title = "Items"
         
-        navigationController?.tabBarItem.title = "Friends"
+        items = []
+        for i in 0..<ItemArchive.shared.numItem{
+            items.append(ItemArchive.shared[i])
+            
+        }
         
     }
+    // var itemArray = [ShopItem]()
+     var currentItemArray = [ShopItem]()
+    // var currentItemArray:[ShopItem]!
+    
     
     @IBOutlet weak var itemSearchBar: UISearchBar!
     
@@ -23,11 +35,10 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setUpItems()
+        setUpItems()
         alterLayout()
         setUpSearchBar()
         fetchAllItems()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"All Items Fetched"), object: nil)
         
         // Do any additional setup after loading the view.
@@ -36,9 +47,6 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         DispatchQueue.main.async {
             self.table.reloadData()
         }
-       
-        
-        
     }
     
     @objc func fetchAllItems(){
@@ -46,16 +54,20 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
     }
     
     //var itemArray = [Item]()
-    
-    var itemArray = [ShopItem]()
-    var currentItemArray = [ShopItem]()
-    
-
-        private func setUpItems(){
-        currentItemArray = itemArray
+    private func setUpItems(){
+        
+        for i in 0..<ItemArchive.shared.numItem{
+           // items.append(ItemArchive.shared[i].self)
+        
+            currentItemArray.append(ItemArchive.shared[i])
+            items.append(ItemArchive.shared[i])
+            print(items[i].itemName)
+            print(currentItemArray[i].itemName)
+        
+        }
         
     }
-   
+    
     
     private func setUpSearchBar() {
         itemSearchBar.delegate = self
@@ -72,13 +84,11 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         itemSearchBar.placeholder = "Search Item by Name"
     }
     
-    
-    
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       // return currentItemArray.count
-        return ItemArchive.shared.numItem
+        
+        
+            //return items.count
+         return ItemArchive.shared.numItem
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,14 +96,10 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
             return UITableViewCell()
         }
         
-        itemArray = []
-        
-        itemArray.append(ItemArchive.shared[indexPath.row])
-        
-        let item = ItemArchive.shared[indexPath.row]
-        
+       let item = ItemArchive.shared[indexPath.row]
+       // cell.itemNameLBL.text = x.itemName
         cell.itemNameLBL.text = item.itemName
-        cell.itemPriceLBL.text = "\(item.price)"
+           cell.itemPriceLBL.text = "\(item.price)"
         cell.storeNameLBL.text = item.storeName
         
         return cell
@@ -109,42 +115,60 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         return UITableView.automaticDimension
     }
     
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) // called when text changes (including clear)
     {
-        guard !searchText.isEmpty else { currentItemArray = itemArray
+        guard !searchText.isEmpty else {
             table.reloadData()
             return
             
+        
         }
-        currentItemArray = itemArray.filter({item -> Bool in
+        
+        
+        
+        //currentItemArray = itemArray.filter({item -> Bool in
             //guard let text = searchBar.text else { return false }
             
-           
-            return item.itemName.lowercased().contains(searchText.lowercased())
-        })
-        table.reloadData()
-        
-    }
-    /*
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        
-        switch selectedScope {
-        case 0:
-            currentItemArray = itemArray
-        case 1:
-            currentItemArray = currentItemArray.filter({item -> Bool in
-                item.category == ItemType.vegetables
-            })
-        case 2:
-            currentItemArray = currentItemArray.filter({item -> Bool in
-                item.category == ItemType.groceries
-            })
             
-        default:
-            break
+          //  return item.itemName.lowercased().contains(searchText.lowercased())
         }
-        table.reloadData()
-    }*/
+    
+    /*
+     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) // called when text changes (including clear)
+     {
+     guard !searchText.isEmpty else { currentItemArray = itemArray
+     table.reloadData()
+     return
+     
+     }
+     currentItemArray = itemArray.filter({item -> Bool in
+     //guard let text = searchBar.text else { return false }
+     
+     
+     return item.itemName.lowercased().contains(searchText.lowercased())
+     })
+     table.reloadData()
+     
+     }*/
+    /*
+     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+     
+     switch selectedScope {
+     case 0:
+     currentItemArray = itemArray
+     case 1:
+     currentItemArray = currentItemArray.filter({item -> Bool in
+     item.category == ItemType.vegetables
+     })
+     case 2:
+     currentItemArray = currentItemArray.filter({item -> Bool in
+     item.category == ItemType.groceries
+     })
+     
+     default:
+     break
+     }
+     table.reloadData()
+     }*/
     
 }
