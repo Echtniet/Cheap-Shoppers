@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0FBAADB32378E29A0026AD8B /* IndividualListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBAADB22378E29A0026AD8B /* IndividualListTableViewController.swift */; };
-		0FBAADB52378F9DE0026AD8B /* AddItemsToListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBAADB42378F9DE0026AD8B /* AddItemsToListsViewController.swift */; };
 		0FC2CE5B23623909004F2715 /* myList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2CE5A23623909004F2715 /* myList.swift */; };
 		0FC2CE5D23623A1A004F2715 /* AddNewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2CE5C23623A1A004F2715 /* AddNewListViewController.swift */; };
 		0FC4332D23441C7500D651B7 /* MyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4332C23441C7500D651B7 /* MyListTableViewController.swift */; };
@@ -31,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		0FBAADB22378E29A0026AD8B /* IndividualListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualListTableViewController.swift; sourceTree = "<group>"; };
-		0FBAADB42378F9DE0026AD8B /* AddItemsToListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemsToListsViewController.swift; sourceTree = "<group>"; };
 		0FC2CE5A23623909004F2715 /* myList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myList.swift; sourceTree = "<group>"; };
 		0FC2CE5C23623A1A004F2715 /* AddNewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListViewController.swift; sourceTree = "<group>"; };
 		0FC4332C23441C7500D651B7 /* MyListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +65,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F9F99C8237F2C110097592A /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		3FC5169F2362833C00A71FD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +86,7 @@
 				C8475DC9234414960019D5B5 /* Cheap Shoppers */,
 				C8475DC8234414960019D5B5 /* Products */,
 				3FC5169F2362833C00A71FD9 /* Frameworks */,
+				3F9F99C8237F2C110097592A /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,7 +218,6 @@
 				0FBAADB32378E29A0026AD8B /* IndividualListTableViewController.swift in Sources */,
 				0FC2CE5B23623909004F2715 /* myList.swift in Sources */,
 				3FC51677235BB4FC00A71FD9 /* FriendBook.swift in Sources */,
-				0FBAADB52378F9DE0026AD8B /* AddItemsToListsViewController.swift in Sources */,
 				3FB1783F234421A6007CC0D0 /* MyFriendsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
