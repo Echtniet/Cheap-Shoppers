@@ -31,7 +31,7 @@ class myList  : Equatable, CKRecordValueProtocol, Hashable {
         get {
             return record["listName"]!
         }
-        set(ssn){
+        set(listName){
             record["listName"] = listName
         }
     }
@@ -53,6 +53,131 @@ class myList  : Equatable, CKRecordValueProtocol, Hashable {
         return lhs.id == rhs.id
     }
 }
+
+class Items : Equatable{
+    
+    var record: CKRecord!
+    
+    var itemId: Int {
+        get{
+            return record["itemId"]!
+        }
+        set(id){
+            record["itemId"] = itemId
+        }
+    }
+    
+    var itemName: String {                      // hides the use of a CKRecord ... pretty slick, if I do say so myself
+        get {
+            return record["itemName"]!
+        }
+        set(itemName){
+            record["itemName"] = itemName
+        }
+    }
+
+    var cheapProducts: CKRecord.Reference!  {   // so we can point to records in CloudKit
+        get {
+            return record["cheapProducts"]
+            
+        }
+        set(cheapProducts) {
+            record["cheapProducts"] = cheapProducts
+        }
+        
+    }
+    
+    init(record:CKRecord){
+        self.record = record
+    }
+    
+    init(itemId: Int, itemName: String){
+        let itemRecordId = CKRecord.ID(recordName:"\(itemId)")
+        self.record = CKRecord(recordType: "items", recordID: itemRecordId)
+        self.record["itemId"] = itemId
+        self.record["itemName"] = itemName
+        self.itemId = itemId
+        self.itemName = itemName
+    }
+    
+    static func == (lhs: Items, rhs: Items) -> Bool{
+        return lhs.itemId == rhs.itemId
+    }
+    
+    //
+    private var items:[myList] = []
+    private static var _shared:Items!
+    
+    var numItem:Int{
+        return items.count
+    }
+    
+    static var shared:Items {
+        if _shared == nil {
+            _shared = Items()
+        }
+        return _shared
+    }
+    
+    subscript(i:Int) -> myList {
+        return items[i]
+    }
+    
+    private init(){
+        populateCloudKitDatabase()
+    }
+    
+    func fetchAllItems(){
+        
+        let query = CKQuery(recordType: "Items", predicate: NSPredicate(value:true)) // this gets *all * teachers
+        Custodian.privateDatabase.perform(query, inZoneWith: nil){
+            (listsRecords, error) in
+            if let error = error {
+                //self.alert(title: "Disaster while fetching all teachers:", message: "\(error)")
+                UIViewController.alert(title: "Disaster while fetching all Items", message:"\(error)")
+            } else {
+                Items.shared.items = []
+                for listRecord in listsRecords! {          // note the studentRecord -> student
+                    let item = myList(record: listRecord)
+                    Items.shared.items.append(item)
+                }
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue:"All Items Fetched"), object: nil)
+            }
+        }
+    }
+    
+    func add(item:myList){
+        Custodian.privateDatabase.save(item.record){
+            (record, error) in
+            if let error = error {
+                UIViewController.alert(title:"Something has gone wrong while adding a teacher", message:"\(error)")
+            }else {
+                self.items.append(item)
+                UIViewController.alert(title:"Successfully saved Item", message:"") //don't save it locally, just in iCloud, because of the difficulties of managing the n side of a 1:n relationship
+                DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: NSNotification.Name("Added New Item"), object: item)
+                    UIViewController.alert(title: "Added New Item", message:"")
+                }
+            }
+        }
+    }
+    
+    func populateCloudKitDatabase(){
+       
+        items = [myList(id: 1, listName: "Item 1"), myList(id: 2, listName: "Item 2")]
+        for item in items {
+            Custodian.privateDatabase.save(item.record){
+                (record, error) in
+                if let error = error {
+                    UIViewController.alert(title: "Disaster while saving lists", message:"\(error)")
+                } else {
+                    UIViewController.alert(title:"Success, saved lists", message:"")
+                }
+            }
+        }
+    }
+}
+
 
 class cheapProducts {
     private var lists:[myList] = []
@@ -116,37 +241,19 @@ class cheapProducts {
     }
     
     func populateCloudKitDatabase(){
-        
-        //var friendsBook:[Friend]
-        
-        lists = [myList(id: 1, listName: "List 1"), myList(id: 2, listName: "List 2")
-        ]
-        
-        
+       
+        lists = [myList(id: 1, listName: "List 1"), myList(id: 2, listName: "List 2")]
         for list in lists {
-            
-            Custodian.privateDatabase.save(list.record){             // 4. save the record (after having gotten the container, and container.publicCloudDatabase
-                
-                (record, error) in                                                      // handle things going wrong
+            Custodian.privateDatabase.save(list.record){
+                (record, error) in
                 if let error = error {
                     UIViewController.alert(title: "Disaster while saving lists", message:"\(error)")
                 } else {
                     UIViewController.alert(title:"Success, saved lists", message:"")
-                    
-                    // having saved the teacher, now save their students
-                    
                 }
             }
-            
-            
         }
-        
-        
     }
-    
-    // returns the count of artist
-    
-    
     
 }
 enum ListError:Error{
