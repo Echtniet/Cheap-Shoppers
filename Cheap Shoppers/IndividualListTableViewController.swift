@@ -10,26 +10,45 @@ import UIKit
 
 class IndividualListTableViewController: UITableViewController {
 
-   
+    var list = myList(id:-1, listName: "Not a list")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "\(list.listName)'s Items"
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    required init?(coder aDecoder:NSCoder) {
+        super.init(coder:aDecoder)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
+        navigationController?.navigationBar.prefersLargeTitles = true
+        NotificationCenter.default.addObserver(self, selector: #selector(itemsAdded), name: NSNotification.Name(rawValue:"Items Added"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(itemDataFetched), name: NSNotification.Name(rawValue:"All Items Fetched"), object: nil)
+    }
     
+    @objc func itemDataFetched(notification:Notification){
+        tableView.reloadData()
+    }
     
-    @objc func listAdded(notification:NSNotification){
+    @objc func itemsAdded(notification:NSNotification){
+           fetchAllItems()
+       }
+    @objc func fetchAllItems(){
+        Items.shared.fetchAllItems()    
+    }
+    @objc func fetchedAllItems(){
+        DispatchQueue.main.async{
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+      Items.shared.fetchAllItems()  
         tableView.reloadData()
     }
     
     @objc func add(_sender:UIBarButtonItem){
-        let navCon = storyboard?.instantiateViewController(withIdentifier: "addNewListNavCon")
+        let navCon = storyboard?.instantiateViewController(withIdentifier: "addNewItemNavCon")
         navCon?.modalPresentationStyle = .fullScreen
         self.present(navCon!, animated: true, completion: nil)
     }
@@ -38,23 +57,30 @@ class IndividualListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Items.shared.numItem
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myListItem", for: indexPath)
         // Configure the cell...
+        let list = cheapProducts.shared[indexPath.row]
+        cell.textLabel?.text = list.listName
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectListTableViewController = storyboard?.instantiateViewController(withIdentifier: "individualList") as! IndividualListTableViewController
+        selectListTableViewController.list = cheapProducts.shared[indexPath.row]
+        navigationController?.pushViewController(selectListTableViewController, animated: true)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -23,7 +23,12 @@ class MyFriendsTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(addedNewFriend), name: NSNotification.Name("Added New Friend"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(fetchedAllFriends), name: NSNotification.Name("All Friends Fetched"), object: nil)
         checkForLogin()
-    }
+        NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"Added New Friend"), object: nil)
+        }
+        
+        @objc func dataFetched(notification:Notification){
+            tableView.reloadData()
+        }
     
     func checkForLogin(){
         
