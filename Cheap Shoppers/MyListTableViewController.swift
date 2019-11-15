@@ -27,7 +27,7 @@ class MyListTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
         self.navigationController?.tabBarItem.title = "List"
         
-        NotificationCenter.default.addObserver(self, selector: #selector(listAdded), name: NSNotification.Name(rawValue: "List Added"), object: nil)
+      //  NotificationCenter.default.addObserver(self, selector: #selector(listAdded), name: NSNotification.Name(rawValue: "List Added"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"All Lists Fetched"), object: nil)
        // self.navigationController?.tabBarItem.image = UIImage(named:"List.png")
     }
@@ -45,26 +45,26 @@ class MyListTableViewController: UITableViewController {
     }
     
     @objc func dataFetched(notification:Notification){
-        tableView.reloadData()
+        DispatchQueue.main.async{self.tableView.reloadData()}
     }
     
-    @objc func listAdded(notification:NSNotification){
-        fetchAllLists()
-    }
-    
-    @objc func fetchAllLists(){
-        cheapProducts.shared.fetchAllLists()
-    }
-    
-    @objc func fetchedAllLists(){
-        DispatchQueue.main.async{
-            self.tableView.reloadData()
-        }
-    }
+//    @objc func listAdded(notification:NSNotification){
+//        fetchAllLists()
+//    }
+//
+//    @objc func fetchAllLists(){
+//        cheapProducts.shared.fetchAllLists()
+//    }
+//
+//    @objc func fetchedAllLists(){
+//        DispatchQueue.main.async{
+//            self.tableView.reloadData()
+//        }
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         cheapProducts.shared.fetchAllLists()
-        tableView.reloadData()
+       // tableView.reloadData()
     }
     
     @objc func add(_sender:UIBarButtonItem){

@@ -7,12 +7,14 @@
 //
 
 import Foundation
-
+import CloudKit
 import UIKit
 
 class AddItemsToListsViewController: UIViewController {
     
     var list = myList(id:-1, listName: "Not a list")
+    @IBAction func savebtn(_ sender: UIButton) {
+    }
     @IBOutlet weak var newItemTF: UITextField!
     
     override func viewDidLoad() {
@@ -26,14 +28,17 @@ class AddItemsToListsViewController: UIViewController {
     
     
     @objc func cancel(){
-        self.dismiss(animated: true, completion: nil)
+        let selectListTableViewController = storyboard?.instantiateViewController(withIdentifier: "individualList") as! IndividualListTableViewController
+        selectListTableViewController.list = list
+        navigationController?.pushViewController(selectListTableViewController, animated: true)
     }
     
     @objc func addItemForList(){
-        //         let item = myList(id:cheapProducts.shared[cheapProducts.shared.numList - 1].id + 1 ,listName: newListTF.text!)
-        //           //        Museum.shared.add(artist: artistItem)
-        //                   cheapProducts.shared.add(list: list)
-        //                   NotificationCenter.default.post(name: NSNotification.Name(rawValue:"List Added"), object: nil)
-        //                   self.dismiss(animated: true, completion: nil)
+     
+     let tempitem = Items(itemId: 0, itemName: newItemTF!.text!, mylist: CKRecord.Reference(recordID: list.record!.recordID,action: .none))
+     cheapItems.shared.add(item: tempitem, currentlist: list)
+    let selectListTableViewController = storyboard?.instantiateViewController(withIdentifier: "individualList") as! IndividualListTableViewController
+     selectListTableViewController.list = list
+     navigationController?.pushViewController(selectListTableViewController, animated: true)
     }
 }

@@ -22,35 +22,39 @@ class IndividualListTableViewController: UITableViewController {
         super.init(coder:aDecoder)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
         navigationController?.navigationBar.prefersLargeTitles = true
-        NotificationCenter.default.addObserver(self, selector: #selector(itemsAdded), name: NSNotification.Name(rawValue:"Items Added"), object: nil)
+       // NotificationCenter.default.addObserver(self, selector: #selector(itemsAdded), name: NSNotification.Name(rawValue:"Items Added"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(itemDataFetched), name: NSNotification.Name(rawValue:"All Items Fetched"), object: nil)
     }
     
     @objc func itemDataFetched(notification:Notification){
-        tableView.reloadData()
+       // tableView.reloadData()
+        DispatchQueue.main.async{ self.tableView.reloadData()}
     }
     
-    @objc func itemsAdded(notification:NSNotification){
-           fetchAllItems()
-       }
-    @objc func fetchAllItems(){
-        Items.shared.fetchAllItems()    
-    }
-    @objc func fetchedAllItems(){
-        DispatchQueue.main.async{
-            self.tableView.reloadData()
-        }
-    }
+//    @objc func itemsAdded(notification:NSNotification){
+//           fetchAllItems()
+//       }
+//    @objc func fetchAllItems(){
+//        Items.shared.fetchAllItems()
+//    }
+//    @objc func fetchedAllItems(){
+//        DispatchQueue.main.async{
+//            self.tableView.reloadData()
+//        }
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
-      Items.shared.fetchAllItems()  
-        tableView.reloadData()
+      cheapItems.shared.fetchAllItems(mylistVal: list)
+      tableView.reloadData()
     }
     
     @objc func add(_sender:UIBarButtonItem){
-        let navCon = storyboard?.instantiateViewController(withIdentifier: "addNewItemNavCon")
-        navCon?.modalPresentationStyle = .fullScreen
-        self.present(navCon!, animated: true, completion: nil)
+//        let navCon = storyboard?.instantiateViewController(withIdentifier: "addNewItemNavCon")
+//        navCon?.modalPresentationStyle = .fullScreen
+//        self.present(navCon!, animated: true, completion: nil)
+        let selectListTableViewController = storyboard?.instantiateViewController(withIdentifier: "addtoList") as! AddItemsToListsViewController
+        selectListTableViewController.list = list
+        navigationController?.pushViewController(selectListTableViewController, animated: true)
     }
 
     // MARK: - Table view data source
@@ -62,15 +66,15 @@ class IndividualListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Items.shared.numItem
+        return cheapItems.shared.numList
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myListItem", for: indexPath)
         // Configure the cell...
-        let list = cheapProducts.shared[indexPath.row]
-        cell.textLabel?.text = list.listName
+        let item = cheapItems.shared[indexPath.row]
+        cell.textLabel?.text = item.itemName
 
         return cell
     }
