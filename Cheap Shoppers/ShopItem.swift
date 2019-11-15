@@ -78,8 +78,6 @@ class ShopItem : Equatable, CKRecordValueProtocol, Hashable {
 
 class ItemArchive {
     private var items:[ShopItem] = []
-    
-    
     var numItem:Int{
         return items.count
     }
@@ -97,19 +95,13 @@ class ItemArchive {
         return items[i]
     }
     
-    /*func add(friend:Friend)throws{
-     
-     friends.append(friend)
-     friends.sort { (friendA, friendB) in return friendA.lastName < friendB.lastName }
-     }*/
-    
     private init(){
-            //populateCloudKitDatabase()
+        //populateCloudKitDatabase()
     }
     
     func fetchAllItems(){
         
-        let query = CKQuery(recordType: "ShopItem", predicate: NSPredicate(value:true)) // this gets *all * teachers
+        let query = CKQuery(recordType: "ShopItem", predicate: NSPredicate(value:true)) // this gets *all * items
         Custodian.privateDatabase.perform(query, inZoneWith: nil){
             (itemRecords, error) in
             if let error = error {
@@ -129,7 +121,7 @@ class ItemArchive {
     
     /// Adds a teacher to CloudKit *and* locally
     ///
-    /// - Parameter teacher: the teacher to add to the database
+    /// - Parameter ShopItem: the item to add to the database
     func add(item:ShopItem){
         Custodian.privateDatabase.save(item.record){
             (record, error) in
@@ -155,48 +147,21 @@ class ItemArchive {
                  ShopItem(id: 4, price: 6.0, itemName: "Milk", storeName: "Walmart"),
                  ShopItem(id: 5, price: 3.0, itemName: "Bread", storeName: "Walmart"),
                  ShopItem(id: 6, price: 8.0, itemName: "Coke", storeName: "Hyvee")
-                 
+            
         ]
         for item in items {
             Custodian.privateDatabase.save(item.record){             // 4. save the record (after having gotten the container, and container.publicCloudDatabase
-                
-                (record, error) in                                                      // handle things going wrongx
+            (record, error) in                                                      // handle things going wrongx
                 if let error = error {
                     UIViewController.alert(title: "Disaster while saving items", message:"\(error)")
                 } else {
                     UIViewController.alert(title:"Success, saved item", message:"")
                     
                     // having saved the teacher, now save their students
-                    
                 }
             }
-            
-            
         }
-        
-        
     }
-    
-    
-    
-    /*
-    func filterPetitions(searchText:String) -> ShopItem{
-        let x:ShopItem =
-        for it in ItemArchive._shared.items {
-            if it.itemName.lowercased().contains(searchText.lowercased()){
-                x = it
-            }
-        }
-        
-       // item.itemName.lowercased().contains(searchText.lowercased())
-        
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue:"Petition Filtered"), object: nil)
-        return x
-    }
-
-    
-    */
 }
 
 enum ShopItemError:Error{

@@ -10,28 +10,13 @@ import UIKit
 
 class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
-    var items:[ShopItem]!
-    
-    required init?(coder: NSCoder) {
-        super.init(coder:coder)
-     
-        navigationController?.tabBarItem.title = "Items"
-        
-        items = []
-        for i in 0..<ItemArchive.shared.numItem{
-            items.append(ItemArchive.shared[i])
-            
-        }
-        
-    }
-    // var itemArray = [ShopItem]()
-     var currentItemArray = [ShopItem]()
-    // var currentItemArray:[ShopItem]!
-    
     
     @IBOutlet weak var itemSearchBar: UISearchBar!
     
     @IBOutlet weak var table: UITableView!
+    
+    var itemArray = [ShopItem]()
+    var currentItemArray = [ShopItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +28,44 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         
         // Do any additional setup after loading the view.
     }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder:coder)
+        
+        navigationController?.tabBarItem.title = "Items"
+        fetchAllItems()
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currentItemArray.count
+        //return ItemArchive.shared.numItem
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? TableCell else {
+            return UITableViewCell()
+        }
+        
+        let item = currentItemArray[indexPath.row]
+        cell.itemNameLBL.text = item.itemName
+        cell.itemPriceLBL.text = "\(item.price)"
+        cell.storeNameLBL.text = item.storeName
+      
+        //cell.imageView?.contentClippingRect = UIImage(named:item.itemName)
+        // cell.imageView?.image = UIImage(named:item.itemName)
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     @objc func dataFetched(notification:Notification){
         DispatchQueue.main.async {
             self.table.reloadData()
@@ -51,28 +74,20 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
     
     @objc func fetchAllItems(){
         ItemArchive.shared.fetchAllItems()
-    }
-    
-    //var itemArray = [Item]()
-    private func setUpItems(){
         
-        for i in 0..<ItemArchive.shared.numItem{
-           // items.append(ItemArchive.shared[i].self)
-        
-            currentItemArray.append(ItemArchive.shared[i])
-            items.append(ItemArchive.shared[i])
-            print(items[i].itemName)
-            print(currentItemArray[i].itemName)
-        
+        for it in 0..<ItemArchive.shared.numItem{
+            itemArray.append(ItemArchive.shared[it])
         }
+        currentItemArray = itemArray
+        
         
     }
-    
+    private func setUpItems(){
+    }
     
     private func setUpSearchBar() {
         itemSearchBar.delegate = self
     }
-    
     func alterLayout() {
         table.tableHeaderView = UIView()
         // search bar in section header
@@ -80,95 +95,43 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         // search bar in navigation bar
         //navigationItem.leftBarButtonItem = UIBarButtonItem(customView: itemSearchBar)
         navigationItem.titleView = itemSearchBar
-        itemSearchBar.showsScopeBar = false // you can show/hide this dependant on your layout
+        
         itemSearchBar.placeholder = "Search Item by Name"
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
-            //return items.count
-         return ItemArchive.shared.numItem
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? TableCell else {
-            return UITableViewCell()
-        }
-        
-       let item = ItemArchive.shared[indexPath.row]
-       // cell.itemNameLBL.text = x.itemName
-        cell.itemNameLBL.text = item.itemName
-           cell.itemPriceLBL.text = "\(item.price)"
-        cell.storeNameLBL.text = item.storeName
-        
-        return cell
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return itemSearchBar
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) // called when text changes (including clear)
     {
-        guard !searchText.isEmpty else {
+        guard !searchText.isEmpty else { currentItemArray = itemArray
             table.reloadData()
             return
             
+        }
+        currentItemArray = itemArray.filter({item -> Bool in
+            return item.itemName.lowercased().contains(searchText.lowercased())
+        })
+        table.reloadData()
         
+    }
+    
+}
+
+extension UIImageView {
+    var contentClippingRect: CGRect {
+        guard let image = image else { return bounds }
+        guard contentMode == .scaleAspectFit else { return bounds }
+        guard image.size.width > 0 && image.size.height > 0 else { return bounds }
+        
+        let scale: CGFloat
+        if image.size.width > image.size.height {
+            scale = bounds.width / image.size.width
+        } else {
+            scale = bounds.height / image.size.height
         }
         
+        let size = CGSize(width: image.size.width * scale, height: image.size.height * scale)
+        let x = (bounds.width - size.width) / 2.0
+        let y = (bounds.height - size.height) / 2.0
         
-        
-        //currentItemArray = itemArray.filter({item -> Bool in
-            //guard let text = searchBar.text else { return false }
-            
-            
-          //  return item.itemName.lowercased().contains(searchText.lowercased())
-        }
-    
-    /*
-     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) // called when text changes (including clear)
-     {
-     guard !searchText.isEmpty else { currentItemArray = itemArray
-     table.reloadData()
-     return
-     
-     }
-     currentItemArray = itemArray.filter({item -> Bool in
-     //guard let text = searchBar.text else { return false }
-     
-     
-     return item.itemName.lowercased().contains(searchText.lowercased())
-     })
-     table.reloadData()
-     
-     }*/
-    /*
-     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-     
-     switch selectedScope {
-     case 0:
-     currentItemArray = itemArray
-     case 1:
-     currentItemArray = currentItemArray.filter({item -> Bool in
-     item.category == ItemType.vegetables
-     })
-     case 2:
-     currentItemArray = currentItemArray.filter({item -> Bool in
-     item.category == ItemType.groceries
-     })
-     
-     default:
-     break
-     }
-     table.reloadData()
-     }*/
-    
+        return CGRect(x: x, y: y, width: size.width, height: size.height)
+    }
 }
