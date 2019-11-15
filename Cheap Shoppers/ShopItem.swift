@@ -96,7 +96,7 @@ class ItemArchive {
     }
     
     private init(){
-        //populateCloudKitDatabase()
+        populateCloudKitDatabase()
     }
     
     func fetchAllItems(){
