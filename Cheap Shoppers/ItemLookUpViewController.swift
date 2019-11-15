@@ -23,7 +23,7 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         setUpItems()
         alterLayout()
         setUpSearchBar()
-        fetchAllItems()
+       // fetchAllItems()
         NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"All Items Fetched"), object: nil)
         
         // Do any additional setup after loading the view.

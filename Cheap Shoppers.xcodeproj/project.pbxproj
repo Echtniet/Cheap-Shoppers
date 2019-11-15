@@ -19,7 +19,6 @@
 		3FC51677235BB4FC00A71FD9 /* FriendBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC51676235BB4FC00A71FD9 /* FriendBook.swift */; };
 		3FC516792360961E00A71FD9 /* StoreListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC516782360961E00A71FD9 /* StoreListing.swift */; };
 		3FC516A12362833C00A71FD9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC516A02362833C00A71FD9 /* CloudKit.framework */; };
-		3FE92674237F2F3900A434C5 /* Cheap-Shoppers in Resources */ = {isa = PBXBuildFile; fileRef = 3FE92673237F2F3900A434C5 /* Cheap-Shoppers */; };
 		3FE92676237F2F5E00A434C5 /* AddItemsToListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE92675237F2F5E00A434C5 /* AddItemsToListsViewController.swift */; };
 		C8475DCB234414960019D5B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8475DCA234414960019D5B5 /* AppDelegate.swift */; };
 		C8475DCD234414960019D5B5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8475DCC234414960019D5B5 /* FirstViewController.swift */; };
@@ -44,7 +43,6 @@
 		3FC516782360961E00A71FD9 /* StoreListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreListing.swift; sourceTree = "<group>"; };
 		3FC5169E236282CB00A71FD9 /* Cheap Shoppers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cheap Shoppers.entitlements"; sourceTree = "<group>"; };
 		3FC516A02362833C00A71FD9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		3FE92673237F2F3900A434C5 /* Cheap-Shoppers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Cheap-Shoppers"; sourceTree = "<group>"; };
 		3FE92675237F2F5E00A434C5 /* AddItemsToListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemsToListsViewController.swift; sourceTree = "<group>"; };
 		C8475DC7234414960019D5B5 /* Cheap Shoppers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cheap Shoppers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8475DCA234414960019D5B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,13 +67,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F9F99C8237F2C110097592A /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		3FC5169F2362833C00A71FD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,7 +78,6 @@
 		3FE92672237F2ED600A434C5 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				3FE92673237F2F3900A434C5 /* Cheap-Shoppers */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -204,7 +194,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FE92674237F2F3900A434C5 /* Cheap-Shoppers in Resources */,
 				C8475DD7234414970019D5B5 /* LaunchScreen.storyboard in Resources */,
 				C8475DD4234414970019D5B5 /* Assets.xcassets in Resources */,
 				C8475DD2234414960019D5B5 /* Main.storyboard in Resources */,
