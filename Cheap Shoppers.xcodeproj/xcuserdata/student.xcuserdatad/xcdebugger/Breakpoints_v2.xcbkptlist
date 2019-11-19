@@ -29,7 +29,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/ShopItem.swift"
-            timestampString = "595893859.059901"
+            timestampString = "595898319.916793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
@@ -45,7 +45,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/myList.swift"
-            timestampString = "595893859.060321"
+            timestampString = "595898319.916875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -93,12 +93,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/myList.swift"
-            timestampString = "595893859.0603859"
+            timestampString = "595898319.917273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "189"
             endingLineNumber = "189"
             landmarkName = "populateCloudKitDatabase()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cheap Shoppers/AddNewListViewController.swift"
+            timestampString = "595898319.917544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "addNewList()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

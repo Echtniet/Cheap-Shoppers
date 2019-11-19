@@ -132,7 +132,7 @@ class cheapProducts {
     
     
     private init(){
-        //populateCloudKitDatabase()
+        populateCloudKitDatabase()
     }
     // returns the artist at ith location
     
@@ -190,7 +190,7 @@ class cheapProducts {
         
         var listAndItems:[myList:[ListItem]]
         
-        lists = [myList(id: "L1", listName: "List 1"), myList(id: "l2", listName: "List 2")]
+        lists = [myList(id: "L1", listName: "List 1"), myList(id: "L2", listName: "List 2")]
         
         items = [ListItem(itemId: "LI1", itemName: "Mayo", list: nil),
                  ListItem(itemId: "LI2", itemName: "Bread", list: nil),
