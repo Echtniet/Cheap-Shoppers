@@ -37,6 +37,12 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        ItemArchive.shared.fetchAllItems()
+        fetchAllItems()
+        table.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentItemArray.count
         //return ItemArchive.shared.numItem

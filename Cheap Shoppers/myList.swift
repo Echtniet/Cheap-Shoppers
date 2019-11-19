@@ -132,7 +132,7 @@ class cheapProducts {
     
     
     private init(){
-        populateCloudKitDatabase()
+        //populateCloudKitDatabase()
     }
     // returns the artist at ith location
     

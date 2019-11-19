@@ -17,7 +17,7 @@ class ShopItem : Equatable, CKRecordValueProtocol, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    var id: Int {                      // hides the use of a CKRecord ... pretty slick, if I do say so myself
+    var id: String {                      // hides the use of a CKRecord ... pretty slick, if I do say so myself
         get {
             return record["id"]!
         }
@@ -57,7 +57,7 @@ class ShopItem : Equatable, CKRecordValueProtocol, Hashable {
         
     }
     
-    init(id:Int, price:Double,itemName:String, storeName:String){
+    init(id:String, price:Double,itemName:String, storeName:String){
         let itemRecordId = CKRecord.ID(recordName: "\(id)")                    // 1. create a record ID
         self.record = CKRecord(recordType: "ShopItem", recordID: itemRecordId)  // 2. create a record using that record ID
         self.record["id"] = id
@@ -141,12 +141,12 @@ class ItemArchive {
     }
     
     func populateCloudKitDatabase(){
-        items = [ShopItem(id: 1, price: 2.3, itemName: "Tomato", storeName: "Walmart"),
-                 ShopItem(id: 2, price: 1.3, itemName: "Potato", storeName: "Hyvee"),
-                 ShopItem(id: 3, price: 4.3, itemName: "Cauliflower", storeName: "Walmart"),
-                 ShopItem(id: 4, price: 6.0, itemName: "Milk", storeName: "Walmart"),
-                 ShopItem(id: 5, price: 3.0, itemName: "Bread", storeName: "Walmart"),
-                 ShopItem(id: 6, price: 8.0, itemName: "Coke", storeName: "Hyvee")
+        items = [ShopItem(id: "S1", price: 2.3, itemName: "Tomato", storeName: "Walmart"),
+                 ShopItem(id: "S2", price: 1.3, itemName: "Potato", storeName: "Hyvee"),
+                 ShopItem(id: "S3", price: 4.3, itemName: "Cauliflower", storeName: "Walmart"),
+                 ShopItem(id: "S4", price: 6.0, itemName: "Milk", storeName: "Walmart"),
+                 ShopItem(id: "S5", price: 3.0, itemName: "Bread", storeName: "Walmart"),
+                 ShopItem(id: "S6", price: 8.0, itemName: "Coke", storeName: "Hyvee")
             
         ]
         for item in items {

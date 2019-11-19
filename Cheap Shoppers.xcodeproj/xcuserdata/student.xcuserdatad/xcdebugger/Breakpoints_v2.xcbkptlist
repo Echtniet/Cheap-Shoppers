@@ -29,7 +29,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/ShopItem.swift"
-            timestampString = "595898319.916793"
+            timestampString = "595900401.6026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
@@ -45,7 +45,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/myList.swift"
-            timestampString = "595898319.916875"
+            timestampString = "595900401.603068"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -93,7 +93,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/myList.swift"
-            timestampString = "595898319.917273"
+            timestampString = "595900401.603434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "189"
@@ -116,6 +116,54 @@
             endingLineNumber = "30"
             landmarkName = "addNewList()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cheap Shoppers/ItemLookUpViewController.swift"
+            timestampString = "595900401.603779"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "ItemLookUpViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cheap_Shoppers.ItemLookUpViewController.itemSearchBar.getter : weak Swift.Optional&lt;__C.UISearchBar&gt;"
+                  moduleName = "Cheap Shoppers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/student/Documents/GitHub/Cheap-Shoppers/Cheap%20Shoppers/ItemLookUpViewController.swift"
+                  timestampString = "595900025.59825"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cheap_Shoppers.ItemLookUpViewController.itemSearchBar.setter : weak Swift.Optional&lt;__C.UISearchBar&gt;"
+                  moduleName = "Cheap Shoppers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/student/Documents/GitHub/Cheap-Shoppers/Cheap%20Shoppers/ItemLookUpViewController.swift"
+                  timestampString = "595900025.600773"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "106">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
