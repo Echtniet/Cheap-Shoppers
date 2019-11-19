@@ -29,12 +29,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/ShopItem.swift"
-            timestampString = "595540421.100487"
+            timestampString = "595893859.059901"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
             endingLineNumber = "112"
             landmarkName = "fetchAllItems()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cheap Shoppers/myList.swift"
+            timestampString = "595893859.060321"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "init(id:listName:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cheap_Shoppers.myList.__allocating_init(id: Swift.String, listName: Swift.String) -&gt; Cheap_Shoppers.myList"
+                  moduleName = "Cheap Shoppers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/student/Documents/GitHub/Cheap-Shoppers/Cheap%20Shoppers/myList.swift"
+                  timestampString = "595892968.312987"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cheap_Shoppers.myList.init(id: Swift.String, listName: Swift.String) -&gt; Cheap_Shoppers.myList"
+                  moduleName = "Cheap Shoppers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/student/Documents/GitHub/Cheap-Shoppers/Cheap%20Shoppers/myList.swift"
+                  timestampString = "595892968.316584"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cheap Shoppers/myList.swift"
+            timestampString = "595893859.0603859"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "populateCloudKitDatabase()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
