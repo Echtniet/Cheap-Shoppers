@@ -8,27 +8,19 @@
 
 import UIKit
 
+//class for the table cell labels from the main storyboard
+
 class TableCell: UITableViewCell {
     
-    
+    // for itemName Label
     @IBOutlet weak var itemNameLBL: UILabel!
-    
+    // for itemPrice Label
     @IBOutlet weak var itemPriceLBL: UILabel!
-    
+    // for item Image
     @IBOutlet weak var itemImage: UIImageView!
-    
+    // for item Store Name
     @IBOutlet weak var storeNameLBL: UILabel!
     
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

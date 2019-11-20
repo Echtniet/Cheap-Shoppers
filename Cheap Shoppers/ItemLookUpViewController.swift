@@ -10,29 +10,29 @@ import UIKit
 
 class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
+    //outlet for item search
     
     @IBOutlet weak var itemSearchBar: UISearchBar!
     
-    
+    //outlett for table
     @IBOutlet weak var table: UITableView!
     
+    // arrays to add items to help with the search functionalities
     var itemArray = [ShopItem]()
     var currentItemArray = [ShopItem]()
     
+    //loads the title and placeholder and methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpItems()
-        searchLayout()
         setUpSearchBar()
-       // UIImageView.ContentMode = UIView.ContentMode.scaleAspectFill
-       // fetchAllItems()
         navigationItem.title = "Cheap Shoppers"
         NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"All Items Fetched"), object: nil)
+        itemSearchBar.placeholder = "Search Item by Name"
         
+        ItemArchive.shared.fetchAllItems()
         
-        // Do any additional setup after loading the view.
-    }
-    
+         }
+    //loads the tabbar title and image
     required init?(coder: NSCoder) {
         super.init(coder:coder)
         self.navigationController?.tabBarItem.image = UIImage(named:"Search_1.png")
@@ -40,18 +40,17 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         fetchAllItems()
         
     }
-    
+    //fetches the items into the table
     override func viewWillAppear(_ animated: Bool) {
-        ItemArchive.shared.fetchAllItems()
         fetchAllItems()
         table.reloadData()
-    }
-    
+        
+         }
+    //returns the count of items
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentItemArray.count
-        //return ItemArchive.shared.numItem
     }
-    
+    //populates the data in the cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? TableCell else {
             return UITableViewCell()
@@ -62,33 +61,24 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         cell.itemPriceLBL.text = NumberFormatter.localizedString(from: NSNumber(value:item.price), number: .currency)
         cell.storeNameLBL.text = item.storeName
         cell.itemImage?.image = UIImage(named:item.itemName)
-        // NumberFormatter.localizedString(from: NSNumber(value:item.price), number: .currency)
-      
-        //cell.imageView?.contentClippingRect = UIImage(named:item.itemName)
-       // cell.imageView?.translatesAutoresizingMaskIntoConstraints = false
-        
-        cell.imageView?.frame.size.width = 300
-        cell.imageView?.backgroundColor = UIColor.purple
-       // cell.imageView?.image = UIImage(named:item.itemName)
-        
         return cell
         
     }
-    
+    //height for the table cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        return 100
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
+    //fetches the data in the background thread
     @objc func dataFetched(notification:Notification){
         DispatchQueue.main.async {
             self.table.reloadData()
         }
     }
-    
+    // adds the items to itemArray
     @objc func fetchAllItems(){
         ItemArchive.shared.fetchAllItems()
         itemArray = []
@@ -97,26 +87,13 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         }
         currentItemArray = itemArray
         
-        
     }
-    private func setUpItems(){
-    }
-    
+    //delegates to this class from UISearchDelegate bar
     private func setUpSearchBar() {
         itemSearchBar.delegate = self
     }
-    func searchLayout() {
-       // table.tableHeaderView = UIView()
-        // search bar in section header
-     //   table.estimatedSectionHeaderHeight = 50
-        // search bar in navigation bar
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(customView: itemSearchBar)
-     //   navigationItem.titleView = itemSearchBar
-        
-        itemSearchBar.placeholder = "Search Item by Name"
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) // called when text changes (including clear)
+    //notices the searchbar for any textchange and loads the data accordingly
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
     {
         guard !searchText.isEmpty else { currentItemArray = itemArray
             table.reloadData()
