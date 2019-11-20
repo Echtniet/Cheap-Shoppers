@@ -19,7 +19,7 @@ class IndividualListTableViewController: UITableViewController {
         self.navigationItem.title = "\(list.listName)'s Items"
         navigationController?.navigationBar.prefersLargeTitles = true
         NotificationCenter.default.addObserver(self, selector: #selector(addedNewItemForList), name: NSNotification.Name("Added New Item For List"), object: nil)
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
