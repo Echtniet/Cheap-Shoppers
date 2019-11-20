@@ -29,7 +29,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/ShopItem.swift"
-            timestampString = "595901325.595767"
+            timestampString = "595964227.883602"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
@@ -45,55 +45,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/myList.swift"
-            timestampString = "595901325.596379"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "init(id:listName:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cheap_Shoppers.myList.__allocating_init(id: Swift.String, listName: Swift.String) -&gt; Cheap_Shoppers.myList"
-                  moduleName = "Cheap Shoppers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Documents/GitHub/Cheap-Shoppers/Cheap%20Shoppers/myList.swift"
-                  timestampString = "595892968.312987"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cheap_Shoppers.myList.init(id: Swift.String, listName: Swift.String) -&gt; Cheap_Shoppers.myList"
-                  moduleName = "Cheap Shoppers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Documents/GitHub/Cheap-Shoppers/Cheap%20Shoppers/myList.swift"
-                  timestampString = "595892968.316584"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Cheap Shoppers/myList.swift"
-            timestampString = "595901325.596445"
+            timestampString = "595904354.231117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "189"
@@ -105,27 +57,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Cheap Shoppers/AddNewListViewController.swift"
-            timestampString = "595898319.917544"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "addNewList()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/ItemLookUpViewController.swift"
-            timestampString = "595901325.5965329"
+            timestampString = "595964227.883713"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "14"

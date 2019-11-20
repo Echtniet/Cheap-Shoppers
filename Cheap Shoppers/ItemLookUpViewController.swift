@@ -13,6 +13,7 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
     
     @IBOutlet weak var itemSearchBar: UISearchBar!
     
+    
     @IBOutlet weak var table: UITableView!
     
     var itemArray = [ShopItem]()
@@ -21,7 +22,7 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpItems()
-        alterLayout()
+        searchLayout()
         setUpSearchBar()
        // fetchAllItems()
         NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"All Items Fetched"), object: nil)
@@ -55,8 +56,9 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         
         let item = currentItemArray[indexPath.row]
         cell.itemNameLBL.text = item.itemName
-        cell.itemPriceLBL.text = "\(item.price)"
+        cell.itemPriceLBL.text = NumberFormatter.localizedString(from: NSNumber(value:item.price), number: .currency)
         cell.storeNameLBL.text = item.storeName
+        // NumberFormatter.localizedString(from: NSNumber(value:item.price), number: .currency)
       
         //cell.imageView?.contentClippingRect = UIImage(named:item.itemName)
         // cell.imageView?.image = UIImage(named:item.itemName)
@@ -65,7 +67,7 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 75
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -80,7 +82,7 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
     
     @objc func fetchAllItems(){
         ItemArchive.shared.fetchAllItems()
-        
+        itemArray = []
         for it in 0..<ItemArchive.shared.numItem{
             itemArray.append(ItemArchive.shared[it])
         }
@@ -94,13 +96,13 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
     private func setUpSearchBar() {
         itemSearchBar.delegate = self
     }
-    func alterLayout() {
-        table.tableHeaderView = UIView()
+    func searchLayout() {
+       // table.tableHeaderView = UIView()
         // search bar in section header
-        table.estimatedSectionHeaderHeight = 50
+     //   table.estimatedSectionHeaderHeight = 50
         // search bar in navigation bar
         //navigationItem.leftBarButtonItem = UIBarButtonItem(customView: itemSearchBar)
-        navigationItem.titleView = itemSearchBar
+     //   navigationItem.titleView = itemSearchBar
         
         itemSearchBar.placeholder = "Search Item by Name"
     }
