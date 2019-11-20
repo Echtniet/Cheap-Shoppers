@@ -18,7 +18,7 @@ class TableCell: UITableViewCell {
     @IBOutlet weak var itemPriceLBL: UILabel!
     // for item Image
     @IBOutlet weak var itemImage: UIImageView!
-    // for item Store Name
+    // for item Store Name in the cell
     @IBOutlet weak var storeNameLBL: UILabel!
     
     
