@@ -24,7 +24,9 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         setUpItems()
         searchLayout()
         setUpSearchBar()
+       // UIImageView.ContentMode = UIView.ContentMode.scaleAspectFill
        // fetchAllItems()
+        navigationItem.title = "Cheap Shoppers"
         NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"All Items Fetched"), object: nil)
         
         // Do any additional setup after loading the view.
@@ -58,10 +60,16 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         cell.itemNameLBL.text = item.itemName
         cell.itemPriceLBL.text = NumberFormatter.localizedString(from: NSNumber(value:item.price), number: .currency)
         cell.storeNameLBL.text = item.storeName
+        cell.itemImage?.image = UIImage(named:item.itemName)
         // NumberFormatter.localizedString(from: NSNumber(value:item.price), number: .currency)
       
         //cell.imageView?.contentClippingRect = UIImage(named:item.itemName)
-        // cell.imageView?.image = UIImage(named:item.itemName)
+       // cell.imageView?.translatesAutoresizingMaskIntoConstraints = false
+        
+        cell.imageView?.frame.size.width = 300
+        cell.imageView?.backgroundColor = UIColor.purple
+       // cell.imageView?.image = UIImage(named:item.itemName)
+        
         return cell
         
     }
@@ -121,25 +129,4 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         
     }
     
-}
-
-extension UIImageView {
-    var contentClippingRect: CGRect {
-        guard let image = image else { return bounds }
-        guard contentMode == .scaleAspectFit else { return bounds }
-        guard image.size.width > 0 && image.size.height > 0 else { return bounds }
-        
-        let scale: CGFloat
-        if image.size.width > image.size.height {
-            scale = bounds.width / image.size.width
-        } else {
-            scale = bounds.height / image.size.height
-        }
-        
-        let size = CGSize(width: image.size.width * scale, height: image.size.height * scale)
-        let x = (bounds.width - size.width) / 2.0
-        let y = (bounds.height - size.height) / 2.0
-        
-        return CGRect(x: x, y: y, width: size.width, height: size.height)
-    }
 }
