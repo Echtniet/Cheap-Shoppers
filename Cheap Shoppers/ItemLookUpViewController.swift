@@ -29,12 +29,13 @@ class ItemLookUpViewController: UIViewController , UITableViewDataSource, UITabl
         navigationItem.title = "Cheap Shoppers"
         NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"All Items Fetched"), object: nil)
         
+        
         // Do any additional setup after loading the view.
     }
     
     required init?(coder: NSCoder) {
         super.init(coder:coder)
-        
+        self.navigationController?.tabBarItem.image = UIImage(named:"Search_1.png")
         navigationController?.tabBarItem.title = "Items"
         fetchAllItems()
         

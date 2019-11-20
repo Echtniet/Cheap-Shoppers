@@ -14,6 +14,7 @@ class MyFriendsTableViewController: UITableViewController {
     required init?(coder: NSCoder) {
         super.init(coder:coder)
         navigationController?.tabBarItem.title = "Friends"
+        self.navigationController?.tabBarItem.image = UIImage(named:"Friend_1.png")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class MyFriendsTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(fetchedAllFriends), name: NSNotification.Name("All Friends Fetched"), object: nil)
         checkForLogin()
         NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"Added New Friend"), object: nil)
+        
         }
         
         @objc func dataFetched(notification:Notification){

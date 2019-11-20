@@ -29,7 +29,7 @@ class MyListTableViewController: UITableViewController {
         
           NotificationCenter.default.addObserver(self, selector: #selector(listAdded), name: NSNotification.Name(rawValue: "List Added"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"All Lists Fetched"), object: nil)
-        // self.navigationController?.tabBarItem.image = UIImage(named:"List.png")
+        self.navigationController?.tabBarItem.image = UIImage(named:"List.png")
     }
     
     func checkForLogin(){
