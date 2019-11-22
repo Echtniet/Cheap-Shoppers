@@ -342,7 +342,7 @@
         <!--Friend Info View Controller-->
         <scene sceneID="W7O-v0-ZVL">
             <objects>
-                <viewController id="IUX-s8-osP" customClass="FriendInfoViewController" customModule="Cheap_Shoppers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FriendInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IUX-s8-osP" customClass="FriendInfoViewController" customModule="Cheap_Shoppers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qmj-Sh-fP7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -373,12 +373,9 @@
                         <viewLayoutGuide key="safeArea" id="RVM-X5-PQ7"/>
                     </view>
                     <connections>
-                        <outlet property="firstNameLBL" destination="ZSG-7C-bAp" id="5jT-BS-ocJ"/>
-                        <outlet property="firstNameTF" destination="ZSG-7C-bAp" id="rO6-RI-8I6"/>
-                        <outlet property="lastNameLBL" destination="4R0-X9-5MI" id="KV6-hi-p9o"/>
-                        <outlet property="lastNameTF" destination="4R0-X9-5MI" id="Df5-hD-Tt4"/>
-                        <outlet property="phoneNum" destination="juI-3p-xrd" id="M0f-dJ-02E"/>
-                        <outlet property="phoneNumLBL" destination="juI-3p-xrd" id="7uX-zT-TwI"/>
+                        <outlet property="firstNameTF" destination="ZSG-7C-bAp" id="p0v-zK-wxv"/>
+                        <outlet property="lastNameTF" destination="4R0-X9-5MI" id="IkY-6x-jQ2"/>
+                        <outlet property="phoneNum" destination="juI-3p-xrd" id="qFJ-Q8-A0h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2je-7q-SMI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
