@@ -27,11 +27,19 @@ class AddNewListViewController: UIViewController {
     }
     
     @objc func addNewList(){
+        guard cheapProducts.shared.numList > 0 else{
+            let list = myList(id:"L1",listName: newListTF.text!)
+            
+            cheapProducts.shared.add(list: list)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"List Added"), object: nil)
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
         var sid = cheapProducts.shared[cheapProducts.shared.numList - 1].id
         sid.removeSubrange(sid.range(of:"L")!)
         let iid = Int(sid)
         let list = myList(id:"L\(iid! + 1)",listName: newListTF.text!)
-        //        Museum.shared.add(artist: artistItem)
+        
         cheapProducts.shared.add(list: list)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue:"List Added"), object: nil)
         self.dismiss(animated: true, completion: nil)

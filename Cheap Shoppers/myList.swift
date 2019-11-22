@@ -132,7 +132,7 @@ class cheapProducts {
     
     
     private init(){
-        //populateCloudKitDatabase()
+        
     }
     // returns the artist at ith location
     
@@ -182,6 +182,37 @@ class cheapProducts {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added new item for list"), object: listItem)
                     UIViewController.alert(title: "Added New Item for List", message: "")
                 }
+            }
+        }
+    }
+    
+    func deleteList(list:myList){
+        
+        if let index = cheapProducts.shared.lists.firstIndex(of: list) {
+            cheapProducts.shared.lists.remove(at: index)
+        }
+        Custodian.privateDatabase.delete(withRecordID: list.record.recordID){
+            (record, error) in
+            if let error = error {
+                UIViewController.alert(title: "Something has gone wrong while deleting a list", message:"\(error)")
+            } else { // deleted from CloudKit, now let's delete our local version
+                UIViewController.alert(title: "Successfully deleted list", message: "")
+            }
+            
+        }
+    }
+    
+    /// Deletes a student
+    ///
+    /// - Parameter student: student to delete
+    func deleteListItem(listItem:ListItem){
+        
+        Custodian.privateDatabase.delete(withRecordID: listItem.record.recordID){
+            (record, error) in
+            if let error = error {
+                UIViewController.alert(title: "Something has gone wrong while deleting a list item", message:"\(error)")
+            } else { // deleted from CloudKit, now let's delete our local version
+                UIViewController.alert(title: "Successfully deleted list item", message: "")
             }
         }
     }
