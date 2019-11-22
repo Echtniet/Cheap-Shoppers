@@ -170,8 +170,20 @@ class FriendBook {
         
     }
     
-    func deleteFriend(index: Int) {
-        friends.remove(at: index)
+    func deleteFriend(friend:Friend){
+        
+        if let index = FriendBook.shared.friends.firstIndex(of: friend) {
+            FriendBook.shared.friends.remove(at: index)
+        }
+        Custodian.privateDatabase.delete(withRecordID: friend.record.recordID){
+            (record, error) in
+            if let error = error {
+                UIViewController.alert(title: "Something has gone wrong while deleting a teacher", message:"\(error)")
+            } else { // deleted from CloudKit, now let's delete our local version
+                UIViewController.alert(title: "Successfully deleted friend", message: "")
+            }
+            
+        }
     }
     
     func populateCloudKitDatabase(){
