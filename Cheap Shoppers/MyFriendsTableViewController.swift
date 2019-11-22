@@ -14,6 +14,7 @@ class MyFriendsTableViewController: UITableViewController {
     required init?(coder: NSCoder) {
         super.init(coder:coder)
         navigationController?.tabBarItem.title = "Friends"
+        self.navigationController?.tabBarItem.image = UIImage(named:"Friend_1.png")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class MyFriendsTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(fetchedAllFriends), name: NSNotification.Name("All Friends Fetched"), object: nil)
         checkForLogin()
         NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"Added New Friend"), object: nil)
+        
         }
         
         @objc func dataFetched(notification:Notification){
@@ -84,12 +86,12 @@ class MyFriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //1. Instantiate a FriendInfoViewController
-        /*let friendTVC = storyboard!.instantiateViewController(withIdentifier: "FriendInfoViewController") as! FriendInfoViewController
+        let friendTVC = storyboard!.instantiateViewController(withIdentifier: "FriendInfoViewController") as! FriendInfoViewController
         //2. Configure its Friend
         friendTVC.friend = FriendBook.shared[indexPath.row]
         
         //3. Push it on to the navigation controller's stack
-        self.navigationController!.pushViewController(friendTVC, animated: true)*/
+        self.navigationController!.pushViewController(friendTVC, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,25 +106,26 @@ class MyFriendsTableViewController: UITableViewController {
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            FriendBook.shared.deleteFriend(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

@@ -20,6 +20,7 @@
 		3FC516792360961E00A71FD9 /* StoreListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC516782360961E00A71FD9 /* StoreListing.swift */; };
 		3FC516A12362833C00A71FD9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC516A02362833C00A71FD9 /* CloudKit.framework */; };
 		3FE92676237F2F5E00A434C5 /* AddItemsToListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE92675237F2F5E00A434C5 /* AddItemsToListsViewController.swift */; };
+		3FF72F082387BCF200DB4CB3 /* FriendInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF72F072387BCF200DB4CB3 /* FriendInfoViewController.swift */; };
 		C8475DCB234414960019D5B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8475DCA234414960019D5B5 /* AppDelegate.swift */; };
 		C8475DCD234414960019D5B5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8475DCC234414960019D5B5 /* FirstViewController.swift */; };
 		C8475DCF234414960019D5B5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8475DCE234414960019D5B5 /* SecondViewController.swift */; };
@@ -44,6 +45,7 @@
 		3FC5169E236282CB00A71FD9 /* Cheap Shoppers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cheap Shoppers.entitlements"; sourceTree = "<group>"; };
 		3FC516A02362833C00A71FD9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3FE92675237F2F5E00A434C5 /* AddItemsToListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemsToListsViewController.swift; sourceTree = "<group>"; };
+		3FF72F072387BCF200DB4CB3 /* FriendInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendInfoViewController.swift; sourceTree = "<group>"; };
 		C8475DC7234414960019D5B5 /* Cheap Shoppers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cheap Shoppers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8475DCA234414960019D5B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8475DCC234414960019D5B5 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				3FC516782360961E00A71FD9 /* StoreListing.swift */,
 				3F8B12EB2378FF8C003CB60E /* ShopItem.swift */,
 				3FE92675237F2F5E00A434C5 /* AddItemsToListsViewController.swift */,
+				3FF72F072387BCF200DB4CB3 /* FriendInfoViewController.swift */,
 			);
 			path = "Cheap Shoppers";
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FC516792360961E00A71FD9 /* StoreListing.swift in Sources */,
+				3FF72F082387BCF200DB4CB3 /* FriendInfoViewController.swift in Sources */,
 				C8475DDF2344179A0019D5B5 /* HomeTableViewController.swift in Sources */,
 				3F8B12EC2378FF8C003CB60E /* ShopItem.swift in Sources */,
 				3FE92676237F2F5E00A434C5 /* AddItemsToListsViewController.swift in Sources */,

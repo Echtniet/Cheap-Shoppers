@@ -170,6 +170,10 @@ class FriendBook {
         
     }
     
+    func deleteFriend(index: Int) {
+        friends.remove(at: index)
+    }
+    
     func populateCloudKitDatabase(){
         
         //var friendsBook:[Friend]
