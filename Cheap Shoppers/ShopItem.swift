@@ -102,7 +102,7 @@ class ItemArchive {
     func fetchAllItems(){
         
         let query = CKQuery(recordType: "ShopItem", predicate: NSPredicate(value:true)) // this gets *all * items
-        Custodian.privateDatabase.perform(query, inZoneWith: nil){
+        Custodian.publicDatabase.perform(query, inZoneWith: nil){
             (itemRecords, error) in
             if let error = error {
                 //self.alert(title: "Disaster while fetching all teachers:", message: "\(error)")
@@ -123,7 +123,7 @@ class ItemArchive {
     ///
     /// - Parameter ShopItem: the item to add to the database
     func add(item:ShopItem){
-        Custodian.privateDatabase.save(item.record){
+        Custodian.publicDatabase.save(item.record){
             (record, error) in
             if let error = error {
                 UIViewController.alert(title:"Something has gone wrong while adding a item", message:"\(error)")
@@ -150,7 +150,7 @@ class ItemArchive {
             
         ]
         for item in items {
-            Custodian.privateDatabase.save(item.record){             // 4. save the record (after having gotten the container, and container.publicCloudDatabase
+            Custodian.publicDatabase.save(item.record){             // 4. save the record (after having gotten the container, and container.publicCloudDatabase
             (record, error) in                                                      // handle things going wrongx
                 if let error = error {
                     UIViewController.alert(title: "Disaster while saving items", message:"\(error)")

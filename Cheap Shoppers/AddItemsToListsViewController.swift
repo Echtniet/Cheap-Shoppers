@@ -7,33 +7,50 @@
 //
 
 import Foundation
-//import CloudKit
+import CloudKit
 import UIKit
 
 class AddItemsToListsViewController: UIViewController {
     
-    var list = myList(id:"S-1", listName: "Not a List")
-    
+    var mlist:myList!
     @IBOutlet weak var newItemTF: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Add Items for \(list.listName)"
-        // Do any additional setup after loading the view.
+        navigationItem.title = "Add Items to \(mlist.listName)"
+        NotificationCenter.default.addObserver(self, selector: #selector(allItemsFetched), name: NSNotification.Name("All Items Fetched"), object: nil)
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addItemForList))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(fetchAllItems))
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    @objc func allItemsFetched(notification:Notification){
+        DispatchQueue.main.async{self.addItemForList()}
+    }
     
+    @objc func fetchAllItems(){
+        cheapProducts.shared.fetchAllItems()
+    }
     @objc func cancel(){
         self.dismiss(animated: true, completion: nil)
     }
     
     @objc func addItemForList(){
-        //         let item = myList(id:cheapProducts.shared[cheapProducts.shared.numList - 1].id + 1 ,listName: newListTF.text!)
-        //           //        Museum.shared.add(artist: artistItem)
-        //                   cheapProducts.shared.add(list: list)
-        //                   NotificationCenter.default.post(name: NSNotification.Name(rawValue:"List Added"), object: nil)
-        //                   self.dismiss(animated: true, completion: nil)
+        
+        guard cheapProducts.shared.numItems > 0 else{
+            let item = ListItem(itemId: "LI1", itemName: newItemTF.text!, list: CKRecord.Reference(recordID: mlist.record.recordID, action: .none))
+            cheapProducts.shared.add(listItem: item)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"Item Added"), object: nil)
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        var sid = cheapProducts.shared.items[cheapProducts.shared.numItems - 1].itemId
+        sid.removeSubrange(sid.range(of:"LI")!)
+        let iid = Int(sid)
+        let item = ListItem(itemId: "LI\(iid! + 1)", itemName: newItemTF.text!, list: CKRecord.Reference(recordID: mlist.record.recordID, action: .none))
+        
+        cheapProducts.shared.add(listItem: item)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:"Item Added"), object: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }

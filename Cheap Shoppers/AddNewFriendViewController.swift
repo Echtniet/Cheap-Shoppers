@@ -31,11 +31,11 @@ class AddNewFriendViewController: UIViewController {
     }
     
     @objc func add() {
-        let firstName = firstNameTF.text
-        let lastName = lastNameTF.text
-        let phoneNum = phoneNumTF.text
-        let SSN = Int (ssn.text!)!
-        let friend = Friend(ssn: SSN, firstName: firstName!, lastName: lastName!, phone: phoneNum!)
+        guard let firstName = firstNameTF.text, let lastName = lastNameTF.text, let phoneNum = phoneNumTF.text, let SSN = Int (ssn.text!) else {
+            return
+        }
+        
+        let friend = Friend(ssn: SSN, firstName: firstName, lastName: lastName, phone: phoneNum)
         FriendBook.shared.add(friend: friend)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue:"Friend Added"), object: nil)
         

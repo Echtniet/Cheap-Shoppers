@@ -27,7 +27,7 @@ class MyListTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
         self.navigationController?.tabBarItem.title = "List"
         
-          NotificationCenter.default.addObserver(self, selector: #selector(listAdded), name: NSNotification.Name(rawValue: "List Added"), object: nil)
+          NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue: "Added New List"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name(rawValue:"All Lists Fetched"), object: nil)
         self.navigationController?.tabBarItem.image = UIImage(named:"List.png")
     }

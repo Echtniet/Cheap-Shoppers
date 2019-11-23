@@ -12,7 +12,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/AddNewFriendViewController.swift"
-            timestampString = "596157661.0138561"
+            timestampString = "596165354.603956"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1"
@@ -29,7 +29,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/ShopItem.swift"
-            timestampString = "596159051.238965"
+            timestampString = "596165354.604043"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
@@ -45,7 +45,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/myList.swift"
-            timestampString = "596159819.448141"
+            timestampString = "596165354.60411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -93,11 +93,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/myList.swift"
-            timestampString = "596159819.448228"
+            timestampString = "596165354.60418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "populateCloudKitDatabase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -109,7 +109,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/AddNewListViewController.swift"
-            timestampString = "596159819.4482991"
+            timestampString = "596165354.604252"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
@@ -173,11 +173,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/myList.swift"
-            timestampString = "596159819.448783"
+            timestampString = "596165354.604405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -189,12 +189,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cheap Shoppers/myList.swift"
-            timestampString = "596159819.4488519"
+            timestampString = "596165354.604486"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "fetchAllLists()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cheap Shoppers/AddItemsToListsViewController.swift"
+            timestampString = "596165354.604556"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cheap Shoppers/AddItemsToListsViewController.swift"
+            timestampString = "596165354.604624"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "addItemForList()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -113,10 +113,14 @@ class cheapProducts {
     private static var _shared:cheapProducts!
     
     private var lists:[myList] = []
-    private var items:[ListItem] = []
+    public var items:[ListItem] = []
     
     var numList:Int{
         return lists.count
+    }
+    
+    var numItems:Int{
+        return items.count
     }
     
     static var shared:cheapProducts {
@@ -155,6 +159,26 @@ class cheapProducts {
         }
     }
     
+    func fetchAllItems(){
+        
+        let query = CKQuery(recordType: "ListItem", predicate: NSPredicate(value:true))
+        Custodian.privateDatabase.perform(query, inZoneWith: nil){
+            (itemsRecords, error) in
+            if let error = error {
+                //self.alert(title: "Disaster while fetching all teachers:", message: "\(error)")
+                UIViewController.alert(title: "Disaster while fetching all items", message:"\(error)")
+            } else {
+                
+                for itemRecord in itemsRecords! {          // note the studentRecord -> student
+                    let item = ListItem(record: itemRecord)
+                    cheapProducts.shared.items.append(item)
+                }
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue:"All Items Fetched"), object: nil)
+            }
+        }
+        
+    }
+    
     func add(list:myList){
         Custodian.privateDatabase.save(list.record){
             (record, error) in
@@ -180,7 +204,7 @@ class cheapProducts {
                 UIViewController.alert(title: "Successfully saved item", message: "")
                 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added new item for list"), object: listItem)
-                    UIViewController.alert(title: "Added New Item for List", message: "")
+                    UIViewController.alert(title: "Added New Item", message: "")
                 }
             }
         }

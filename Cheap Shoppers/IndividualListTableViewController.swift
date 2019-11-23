@@ -18,24 +18,29 @@ class IndividualListTableViewController: UITableViewController {
         super.viewDidLoad()
         self.navigationItem.title = "\(list.listName)'s Items"
         navigationController?.navigationBar.prefersLargeTitles = true
-        NotificationCenter.default.addObserver(self, selector: #selector(addedNewItemForList), name: NSNotification.Name("Added New Item For List"), object: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: addedNewItemForList(), action: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchItemsForAList), name: NSNotification.Name("Added New Item"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(dataFetched), name: NSNotification.Name("Items Fetched"), object: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetchItemsForAList()
     }
     
-    @objc func addItemForList(){
+    @objc func dataFetched(notification:Notification){
+        DispatchQueue.main.async{self.tableView.reloadData()}
+    }
+    
+    @objc func add(){
+        let navCon = storyboard?.instantiateViewController(withIdentifier: "addnewitem")
+        navCon?.modalPresentationStyle = .fullScreen
         
-        fetchItemsForAList()
-        
+        let itemAdder = navCon?.children[0] as! AddItemsToListsViewController
+        itemAdder.mlist = list
+        self.present(navCon!, animated: true, completion: nil)
         
     }
     
-    @objc func addedNewItemForList(){
-        fetchItemsForAList()
-    }
     
     @objc func fetchItemsForAList(){
         let listRecordID = list.record.recordID
